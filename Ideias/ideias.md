@@ -29,3 +29,6 @@ Até o momento, temos a seguinte proposta geral o Cofre-IoT:
 * Pode ter um display simples secundário que mostre o valor contido
   dentro do cofre, através de uma consulta à aplicação servidora
   em nuvem
+
+Uma idéia geral de arquitetura e componentes está na figura abaixo:
+![Primeira idéia da arquitetura do Cofre-IoT](arquitetura-01.jpg)
