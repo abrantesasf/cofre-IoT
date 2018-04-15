@@ -1,0 +1,371 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Template: Article
+%
+% Por: Abrantes Araújo Silva Filho
+%      abrantesasf@gmail.com
+%
+% Citação: Se você gostou deste template, por favor ajude a divulgá-lo mantendo
+%          o link para meu repositório GitHub em:
+%          https://github.com/abrantesasf/LaTeX
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Configura o tipo de documento, papel, tamanho da fonte e informações básicas
+%%% para as proriedades do PDF/DVIPS e outras propriedades do documento
+\RequirePackage{ifpdf}
+\ifpdf
+  % Classe, língua e tamanho da fonte padrão. Outras opções a considerar:
+  %   draft
+  %   onecolumn (padrão) ou twocolumn (OU usar o package multicol)
+  %   fleqn com ou sem leqno (alinhamento à esquerda das fórmulas e dos números)
+  %   oneside (padrão para article ou report) ou twoside (padrão para book)
+  \documentclass[pdftex, brazil, 12pt, twoside]{article}
+\else
+  % Classe, língua e tamanho da fonte padrão. Outras opções a considerar:
+  %   draft
+  %   onecolumn (padrão) ou twocolumn (OU usar o package multicol)
+  %   fleqn com ou sem leqno (alinhamento à esquerda das fórmulas e dos números)
+  %   oneside (padrão para article ou report) ou twoside (padrão para book)
+  \documentclass[brazil, 12pt]{article}
+\fi
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Carrega pacotes iniciais necessários para estrutura de controle e para a
+%%% criação e o parse de novos comandos
+\usepackage{ifthen}
+\usepackage{xparse}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Configuração do tamanho da página, margens, espaçamento entrelinhas e, se
+%%% necessário, ativa a indentação dos primeiros parágrafos.
+\ifpdf
+  \usepackage[pdftex]{geometry}
+\else
+  \usepackage[dvips]{geometry}
+\fi
+\geometry{a4paper, left=2.6cm, right=4.0cm, top=3.0cm, bottom=3.4cm}
+
+\usepackage{setspace}
+  %\singlespacing
+  \onehalfspacing
+  %\doublespacing
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Configurações de cabeçalho e rodapé:
+\usepackage{fancyhdr}
+\setlength{\headheight}{1cm}
+\setlength{\footskip}{1.5cm}
+\renewcommand{\headrulewidth}{0.3pt}
+\renewcommand{\footrulewidth}{0.0pt}
+\pagestyle{fancy}
+\renewcommand{\sectionmark}[1]{%
+  \markboth{\uppercase{#1}}{}}
+\renewcommand{\subsectionmark}[1]{%
+  \markright{\uppercase{\thesubsection \hspace{0.1cm} #1}}{}}
+\fancyhead{}
+\fancyfoot{}
+\newcommand{\diminuifonte}{%
+    \fontsize{9pt}{9}\selectfont
+}
+\newcommand{\aumentafonte}{%
+    \fontsize{12}{12}\selectfont
+}
+% Configura cabeçalho e rodapé para documentos TWOSIDE
+\fancyhead[EL]{\textbf{\thepage}}
+\fancyhead[EC]{}
+\fancyhead[ER]{\diminuifonte \textbf{\leftmark}}
+\fancyhead[OR]{\textbf{\thepage}}
+\fancyhead[OC]{}
+\fancyhead[OL]{\diminuifonte \textbf{\rightmark}}
+\fancyfoot[EL,EC,ER,OR,OC,OL]{}
+% Configura cabeçalho e rodapé para documentos ONESIDE
+%\lhead{ \fancyplain{}{sup esquerdo} }
+%\chead{ \fancyplain{}{sup centro} }
+%\rhead{ \fancyplain{}{\thesection} }
+%\lfoot{ \fancyplain{}{inf esquerdo} }
+%\cfoot{ \fancyplain{}{inf centro} }
+%\rfoot{ \fancyplain{}{\thepage} }
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Configurações de encoding, lingua e fontes:
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+
+% Altera a fonte padrão do documento (nem todas funcionam em modo math):
+%   phv = Helvetica
+%   ptm = Times
+%   ppl = Palatino
+%   pbk = bookman
+%   pag = AdobeAvantGarde
+%   pnc = Adobe NewCenturySchoolBook
+\renewcommand{\familydefault}{ppl}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Carrega pacotes para referências cruzadas, citações dentro do documento,
+%%% links para internet e outros.Configura algumas opções.
+%%% Não altere a ordem de carregamento dos packages.
+\usepackage{varioref}
+\ifpdf
+  \usepackage[pdftex]{hyperref}
+    \hypersetup{
+      % Informações variáveis em cada documento (MUDE AQUI!):
+      pdftitle={Internet das Coisas},
+      pdfauthor={Abrantes Araújo Silva Filho},
+      pdfsubject={Internet das Coisas},
+      pdfkeywords={internet das coisas, internet of things, iot},
+      pdfinfo={
+        CreationDate={}, % Ex.: D:AAAAMMDDHH24MISS
+        ModDate={}       % Ex.: D:AAAAMMDDHH24MISS
+      },
+      % Coisas que você não deve alterar se não souber o que está fazendo:
+      unicode=true,
+      pdflang={pt-BR},
+      bookmarksopen=true,
+      bookmarksnumbered=true,
+      bookmarksopenlevel=5,
+      pdfdisplaydoctitle=true,
+      pdfpagemode=UseOutlines,
+      pdfstartview=FitH,
+      pdfcreator={LaTeX with hyperref package},
+      pdfproducer={pdfTeX},
+      pdfnewwindow=true,
+      colorlinks=true,
+      citecolor=green,
+      linkcolor=red,
+      filecolor=cyan,
+      urlcolor=blue
+    }
+\else
+  \usepackage{hyperref}
+\fi
+\usepackage{cleveref}
+\usepackage{url}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Referências bibliográficas
+\usepackage[round, semicolon, authoryear]{natbib}
+\bibliographystyle{abrantesasf}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Carrega bibliotecas de símbolos (matemáticos, físicos, etc.), fontes
+%%% adicionais, e configura algumas opções
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{siunitx}
+  \sisetup{group-separator = {.}}
+  \sisetup{group-digits = {false}}
+  \sisetup{output-decimal-marker = {,}}
+
+% Altera separador decimal via comando, se necessário (prefira o siunitx):
+%\mathchardef\period=\mathcode`.
+%\DeclareMathSymbol{.}{\mathord}{letters}{"3B}
+  
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Carrega packages relacionados à computação
+\usepackage{algorithm2e}
+\usepackage{algorithmicx}
+\usepackage{algpseudocode}
+\usepackage{listings}
+  \lstset{literate=
+    {á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+    {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+    {à}{{\`a}}1 {è}{{\`e}}1 {ì}{{\`i}}1 {ò}{{\`o}}1 {ù}{{\`u}}1
+    {À}{{\`A}}1 {È}{{\'E}}1 {Ì}{{\`I}}1 {Ò}{{\`O}}1 {Ù}{{\`U}}1
+    {ä}{{\"a}}1 {ë}{{\"e}}1 {ï}{{\"i}}1 {ö}{{\"o}}1 {ü}{{\"u}}1
+    {Ä}{{\"A}}1 {Ë}{{\"E}}1 {Ï}{{\"I}}1 {Ö}{{\"O}}1 {Ü}{{\"U}}1
+    {â}{{\^a}}1 {ê}{{\^e}}1 {î}{{\^i}}1 {ô}{{\^o}}1 {û}{{\^u}}1
+    {Â}{{\^A}}1 {Ê}{{\^E}}1 {Î}{{\^I}}1 {Ô}{{\^O}}1 {Û}{{\^U}}1
+    {œ}{{\oe}}1 {Œ}{{\OE}}1 {æ}{{\ae}}1 {Æ}{{\AE}}1 {ß}{{\ss}}1
+    {ű}{{\H{u}}}1 {Ű}{{\H{U}}}1 {ő}{{\H{o}}}1 {Ő}{{\H{O}}}1
+    {ç}{{\c c}}1 {Ç}{{\c C}}1 {ø}{{\o}}1 {å}{{\r a}}1 {Å}{{\r A}}1
+    {€}{{\euro}}1 {£}{{\pounds}}1 {«}{{\guillemotleft}}1
+    {»}{{\guillemotright}}1 {ñ}{{\~n}}1 {Ñ}{{\~N}}1 {¿}{{?`}}1
+  }
+  
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Ativa suporte extendido a cores
+\usepackage[svgnames]{xcolor} % Opções de cores: usenames (16), dvipsnames (64),
+                              % svgnames (150) e x11names (300).
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Suporte à importação de gráficos externos
+\ifpdf
+  \usepackage[pdftex]{graphicx}
+\else
+  \usepackage[dvips]{graphicx}
+\fi
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Suporte à criação de gráficos proceduralmente na LaTeX:
+\usepackage{tikz}
+  \usetikzlibrary{arrows,automata,backgrounds,matrix,patterns,positioning,shapes,shadows}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Packages para tabelas
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{tabularx}
+\usepackage{tabu}
+\usepackage{lscape}
+\usepackage{colortbl}  
+\usepackage{booktabs}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Packages ambientes de listas
+\usepackage{enumitem}
+\usepackage[ampersand]{easylist}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Packages para suporte a ambientes floats, captions, etc.:
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{placeins}
+\usepackage{caption}
+\usepackage{sidecap}
+\usepackage{subcaption}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Meus comandos específicos:
+% Commando para ``italizar´´ palavras em inglês (e outras línguas!):
+\newcommand{\ingles}[1]{\textit{#1}}
+
+% Commando para colocar o espaço correto entre um número e sua unidade:
+\newcommand{\unidade}[2]{\ensuremath{#1\,\mathrm{#2}}}
+\newcommand{\unidado}[2]{{#1}\,{#2}}
+
+% Produz ordinal masculino ou feminino dependendo do segundo argumento:
+\newcommand{\ordinal}[2]{%
+#1%
+\ifthenelse{\equal{a}{#2}}%
+{\textordfeminine}%
+{\textordmasculine}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Hifenização específica quando o LaTeX/Babel não conseguirem hifenizar:
+\babelhyphenation{Git-Hub}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% COMEÇA O DOCUMENTO %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\title{Internet das Coisas}
+\author{Abrantes Araújo Silva Filho}
+\date{2018-04-19}
+\maketitle
+\tableofcontents
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Seção}
+\label{etiqueta}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Subseção}
+\label{subetiqueta}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Subsubseção}
+\label{subsubetiqueta}
+
+Lorem ipsum dolor sit amet~\citep{9788537810415}, consectetur adipiscing elit. Aliquam congue nunc nec sodales cursus. Praesent iaculis sem id ex laoreet, vel pharetra quam mollis. Etiam egestas vehicula viverra. Aenean interdum lobortis lorem, sed facilisis justo ultricies et. Nulla facilisi. In non metus tellus. Aliquam porta, nibh a dictum pulvinar, nulla nibh auctor mauris, eu tristique magna nisi nec tortor. Nunc lacinia mattis sollicitudin. Donec tristique faucibus nulla ut fringilla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Morbi facilisis, erat vel consequat pretium, diam purus volutpat nisl, vel gravida eros dolor at erat. Donec et lectus tristique, mattis metus eu, venenatis nunc. Etiam non tortor rutrum, laoreet augue in, dictum tortor. Vivamus imperdiet lectus id sagittis congue.
+
+Integer commodo velit nec fringilla fringilla~\citep{9780443074448}. Donec non lobortis lacus. In eget ligula non erat tempor pretium id mattis dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam scelerisque, metus sed vehicula dignissim, mauris massa tincidunt dolor, id viverra elit ex non libero. In dapibus facilisis laoreet. Vivamus mattis nisl vel auctor auctor.
+
+Nunc viverra~\citep{Cormen2009}, leo at posuere consectetur, dolor neque congue risus, ac elementum risus augue nec turpis. Sed cursus justo ac mollis accumsan. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam dictum sed erat sit amet tristique. Nulla a iaculis nibh. Proin pellentesque elementum arcu, vitae sodales leo mattis nec. Etiam posuere non tortor id feugiat. Mauris scelerisque sagittis molestie. Etiam quis leo at orci pellentesque placerat eu eu elit. Suspendisse ultrices odio velit, non fermentum velit sagittis in. Quisque convallis nulla at porta facilisis. Cras consequat et nisi eu euismod. Vestibulum congue dictum leo, sit amet hendrerit justo viverra id. Maecenas porta gravida est sit amet venenatis.
+
+Suspendisse porttitor nunc maximus~\citep{FitzgeraldShiloh2013}, ultricies dolor vel, consequat nisi. Donec nisl nisl, porta non lacinia id, lacinia sit amet erat. Praesent at est tortor. Suspendisse potenti. Praesent non purus egestas, interdum mi non, vestibulum ex. Nulla rutrum, neque eget sodales dignissim, nisi orci facilisis dui, at dapibus nulla enim sed risus. Vivamus eleifend eros eget arcu aliquet, vel varius sapien sollicitudin. Donec mattis tortor sit amet ligula tristique, at congue lorem aliquam.
+
+Quisque condimentum felis quis mauris vehicula, ac dignissim velit porta. Aliquam sodales urna ut tortor posuere dictum. Donec eget tincidunt magna. Aenean non elementum mi. Aliquam convallis sem at lorem tincidunt, sed semper dolor elementum. Aliquam et cursus ipsum, sed convallis diam. Mauris venenatis, mi ut fringilla varius, mauris dolor efficitur nibh, a consequat libero nisl et diam. Fusce efficitur felis sed dui malesuada bibendum. Sed ullamcorper felis ut sem fringilla, et consequat urna eleifend. Sed sit amet rutrum neque. Vivamus posuere nisl ex, et feugiat nisi interdum elementum. Praesent et consectetur sem.
+
+Duis tempus lectus purus, sit amet convallis urna tempus sed. Aliquam ultrices arcu et augue pretium lacinia. Nullam vel molestie lectus. Cras sodales vehicula lectus et sodales. Suspendisse condimentum a diam id egestas. Integer est lectus, gravida at arcu at, euismod consectetur erat. Cras porta, justo eget tempus commodo, nunc velit convallis magna, id ultrices arcu dui ut mi. Etiam porta nunc libero, et sodales nulla fermentum eget. Cras imperdiet, augue non varius elementum, ante lectus luctus arcu, ut venenatis erat diam at dui. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Vestibulum dolor purus, viverra eget dictum non, ultrices vel urna. Nunc dapibus risus tellus, quis porttitor lorem euismod a. Vivamus gravida est sit amet consequat pulvinar. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+Fusce tempus sem ipsum. Quisque congue commodo lectus sit amet malesuada. Nunc eros leo, pretium a velit non, varius sollicitudin mi. Nulla at varius quam, ut hendrerit mi. Suspendisse sit amet nulla posuere, tincidunt orci in, gravida augue. Nulla felis justo, euismod et vehicula in, tristique iaculis dui. Aenean et dolor metus. In pretium nunc vel augue aliquam, sed interdum ex luctus. Vestibulum dapibus sodales metus, ut porta nibh dignissim non.
+
+Nulla interdum suscipit posuere. Sed eget augue lacus. Sed ex ipsum, mattis semper elit vitae, consequat lobortis erat. Suspendisse vitae tortor id nulla vulputate convallis nec sit amet lacus. Cras euismod ipsum eu ipsum tempus, ac tempor ex vehicula. Sed rutrum ornare dictum. Morbi efficitur vehicula nibh id convallis.
+
+Vivamus ornare et enim id sodales. Integer quis cursus nunc. Morbi sagittis, odio vitae commodo varius, nibh urna tempus nunc, in faucibus nisi nulla non ante. Ut eget lacinia ex. Cras laoreet quam ligula, nec blandit libero pretium in. In facilisis gravida lorem, at maximus nulla feugiat et. Vestibulum efficitur feugiat tempus. Suspendisse eu dapibus nunc.
+
+Nullam vitae libero imperdiet ex pretium ultrices. In tempus viverra aliquam. Pellentesque vel dui egestas, imperdiet arcu eget, pulvinar libero. Cras ut malesuada augue, in sollicitudin erat. Fusce cursus, urna quis lacinia bibendum, arcu arcu tempus nisi, at porttitor lectus nunc ut augue. Nunc consequat eget felis id sodales. Pellentesque gravida sit amet orci a fermentum. Proin urna ante, convallis ac scelerisque eget, laoreet a velit. Proin egestas viverra justo nec iaculis. Phasellus vel elementum orci. Pellentesque sollicitudin ornare nisi.
+
+Integer luctus nunc id posuere sodales. Proin vel mauris ac metus suscipit placerat. Maecenas euismod nisi id nulla condimentum, in laoreet quam ultricies. Donec quis mollis sem. Ut sollicitudin vestibulum est sed gravida. Donec commodo consequat volutpat. Fusce non nisi pulvinar, maximus leo ut, mollis dui. Morbi efficitur risus in tellus vestibulum porta. Nulla facilisi. Nullam lobortis iaculis felis sit amet gravida.
+
+In odio est, viverra non aliquet at, pretium non purus. Nulla facilisi. Pellentesque nec lectus non lacus efficitur convallis sed at dolor. Aliquam consectetur sem eu eros tristique tempus. Pellentesque orci risus, tempor nec augue eget, auctor ullamcorper eros. Vestibulum congue nisi efficitur, ultrices eros ac, fermentum purus. In sodales ex eu aliquam ultrices. Integer vehicula lacus ex, nec aliquam arcu efficitur quis. Donec nec fringilla turpis. Proin dolor diam, auctor a interdum in, congue eu sem. Pellentesque consectetur efficitur nisi, ut porta leo porta at. Aenean ut libero a augue eleifend cursus et non justo. Duis sodales, libero vitae accumsan tincidunt, ligula leo tristique ante, nec efficitur arcu ipsum nec urna. Vivamus porta, justo ut sollicitudin ultricies, nisl ex venenatis lacus, vitae facilisis justo massa sit amet enim. Vestibulum sagittis mi dolor, in placerat leo pharetra ac.
+
+Morbi efficitur maximus blandit. Donec non eros non turpis viverra molestie nec et diam. Integer congue malesuada egestas. Curabitur eget eros maximus, venenatis quam tempus, aliquet ipsum. Morbi vel lobortis nisl. Nam quis nunc ullamcorper, mattis velit vitae, sodales ipsum. Pellentesque erat velit, dignissim et tellus at, ultrices mollis augue. Suspendisse enim ligula, blandit imperdiet porta id, sodales in tortor. Nullam dignissim, dolor vel maximus hendrerit, velit enim scelerisque velit, non tincidunt nisi libero at ipsum. Phasellus condimentum ex ac augue fermentum, eget convallis velit volutpat. Praesent sed hendrerit elit. In placerat, massa non imperdiet commodo, metus lorem elementum odio, id sodales urna ex quis augue. Mauris luctus maximus lacus, nec placerat felis hendrerit in. In mollis, quam vitae congue interdum, arcu mi lobortis arcu, vitae viverra felis enim vitae lorem.
+
+Maecenas et nisi eu mi egestas luctus. Morbi lorem ipsum, viverra id est ut, ultricies semper ante. Aenean lacinia nulla sed mauris lacinia, ac sagittis eros interdum. Nam vestibulum quis neque eget tincidunt. Donec quis convallis dolor, dignissim volutpat ipsum. Vivamus egestas ultrices neque, ac dapibus nulla lacinia convallis. Nam blandit eros quis est pulvinar eleifend. Duis id nulla bibendum, mollis massa in, finibus diam. Quisque ac blandit dui. Nunc sagittis, purus nec sagittis congue, felis orci maximus metus, id ornare eros urna vel enim. Pellentesque semper sapien non rhoncus semper. Donec ultricies consectetur augue, non volutpat sapien imperdiet non. Nulla volutpat suscipit tortor, in fermentum metus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam varius, mi non feugiat pretium, dui quam sodales odio, id laoreet sapien metus eu nibh.
+
+Sed imperdiet tellus at ipsum lobortis placerat. Nulla pellentesque mauris risus, id feugiat risus tristique eu. Etiam sit amet faucibus magna, sit amet posuere arcu. Proin vehicula felis id odio aliquet rhoncus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nam ultrices congue pretium. Aliquam nec aliquet nunc. Sed laoreet vestibulum rhoncus.
+
+Vivamus tempor justo at tortor tristique vehicula. Praesent fringilla felis eu enim ultrices, ut finibus ante volutpat. Aliquam dui quam, mattis ut mollis ac, condimentum ut nunc. Aenean et sagittis augue, ut aliquam erat. Pellentesque tincidunt dictum lorem, nec dictum felis mattis quis. Donec rhoncus gravida mauris ut viverra. Integer eu fermentum sapien. Sed vel tortor in lacus tempor commodo. Donec non sapien sed lectus placerat faucibus. Nunc in leo libero.
+
+Nullam tincidunt vel nunc eget tincidunt. Vestibulum eu tincidunt arcu, in commodo ipsum. Quisque felis tortor, lacinia lacinia gravida in, pharetra eget velit. Cras efficitur dolor augue, vitae tincidunt ligula pellentesque sed. Cras accumsan tempor sapien, eu fermentum purus pulvinar eu. Praesent ut venenatis magna. Morbi euismod, elit sit amet congue posuere, nulla arcu fringilla justo, non lacinia nibh nunc eget nisi. Cras quis pulvinar mauris. Cras ex urna, blandit a augue ac, placerat efficitur dolor. Sed porttitor elit vel ligula accumsan facilisis. Etiam sagittis interdum leo quis lacinia.
+
+Sed bibendum pulvinar felis at posuere. In aliquet et orci sit amet dignissim. Maecenas luctus, ipsum vitae faucibus vestibulum, augue lectus vestibulum erat, quis lacinia purus leo vel nisl. Ut pretium ante sed ligula interdum, at maximus mi ullamcorper. Nulla non eros id mi facilisis gravida sit amet eu ex. Nam venenatis orci non semper convallis. Duis suscipit ante non nunc dignissim, non convallis mauris cursus. Fusce tristique risus id tortor cursus gravida. Aliquam faucibus non massa sed dignissim. Nulla scelerisque ornare sagittis. Donec eleifend suscipit pretium. Nam auctor tempor sapien a facilisis.
+
+In commodo aliquam mauris. Nulla facilisi. Curabitur hendrerit tristique diam, vel malesuada orci ultricies id. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec commodo molestie diam. Phasellus sapien quam, gravida id tellus at, dignissim placerat mi. Praesent et fringilla ipsum, vitae maximus nisi. Nulla interdum ut dui ut viverra. Praesent nec aliquet nisi. Suspendisse nec lorem quis justo ultrices maximus. Aenean ultrices tincidunt lacus vitae ultricies.
+
+Integer mi felis, lobortis quis arcu a, volutpat sagittis metus. Integer eget rhoncus neque, at lacinia libero. Vestibulum dignissim convallis quam vel fringilla. Vivamus sit amet consequat ex. Vivamus purus leo, eleifend eu purus vitae, commodo interdum ante. Suspendisse vel euismod lectus. Sed tempus enim ut libero rhoncus vehicula. Pellentesque scelerisque luctus porttitor. Quisque pellentesque efficitur ante, sit amet dapibus diam condimentum eget.
+
+Phasellus ornare sagittis mi ac euismod. Integer at leo nec lorem maximus consequat. Nulla nec eleifend neque. Mauris eget interdum neque. Aenean quis rutrum ligula. In condimentum, tortor at tempus sollicitudin, mauris nisl finibus leo, ac rutrum lorem nibh ac massa. Vestibulum vitae dictum lorem, sed maximus arcu. Ut venenatis sem facilisis massa imperdiet sagittis. In sed semper erat, convallis tincidunt eros. Ut ut lacus vitae turpis tincidunt gravida id a lorem. Morbi vitae leo ut sapien faucibus pretium ac at ante. Suspendisse potenti. Sed nec aliquet nisi, in laoreet tellus. Integer efficitur ac libero euismod gravida.
+
+Aliquam efficitur, dolor ac posuere efficitur, urna ligula tristique purus, in fringilla dolor quam nec ex. Morbi laoreet blandit ligula suscipit tincidunt. Aenean a nisi vitae lorem dictum fringilla. Nam tincidunt luctus feugiat. Vivamus sed fringilla lectus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed congue sapien lorem, condimentum facilisis ligula iaculis quis. Aliquam fermentum in est id lobortis.
+
+Quisque luctus consequat velit, non pellentesque ante iaculis nec. Donec dictum sem vitae mattis commodo. Suspendisse potenti. Fusce lacinia rutrum nisi, eget pellentesque eros elementum vel. Quisque pharetra vehicula risus et tincidunt. Suspendisse ut lectus gravida leo luctus mollis. Mauris semper leo dapibus, scelerisque leo in, dignissim libero. Integer pretium orci odio, placerat viverra eros consequat at. Nullam fermentum vitae nibh at congue. Pellentesque et tortor eget odio mattis euismod at nec sapien.
+
+Nunc sagittis, ligula sed fermentum egestas, nisl sapien dictum tortor, eu facilisis quam eros nec sem. Suspendisse velit orci, vestibulum vel elit eget, iaculis interdum ligula. Cras sodales pretium velit at hendrerit. Nulla lacus urna, faucibus ac vestibulum at, lobortis a nunc. Praesent sagittis justo ac eros sagittis auctor. Sed accumsan molestie sapien, at efficitur velit vehicula ac. Donec sagittis, elit eu consequat dignissim, risus enim lacinia dolor, sed rutrum mi magna id leo. Sed cursus, arcu sed dignissim bibendum, quam orci fringilla mi, non tincidunt augue leo nec augue. Nunc dignissim elit sed elit tempor, in maximus mi aliquet. Nulla facilisi.
+
+Phasellus ut sapien sit amet enim elementum semper. Suspendisse rutrum vitae purus id tincidunt. Aliquam semper dui vitae metus vestibulum, non ornare nisi gravida. Aliquam ac neque laoreet, malesuada justo ut, mattis nunc. Nam molestie dui id enim facilisis, eu efficitur justo laoreet. Cras dictum est ipsum, nec sagittis orci malesuada id. Vivamus molestie lorem ullamcorper leo aliquet, sit amet dignissim orci cursus. Pellentesque eu nisi tempus, feugiat arcu vitae, bibendum mauris. Nulla efficitur augue ac tellus tincidunt feugiat. Nullam hendrerit ut sapien non rhoncus. Vivamus mollis molestie ex. Interdum et malesuada fames ac ante ipsum primis in faucibus. Proin tincidunt congue orci vitae malesuada. Suspendisse tempus ex in elit accumsan, in sagittis mauris lobortis. 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TERMINA O DOCUMENTO %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\bibliography{/home/abrantesasf/repositoriosGit/BibTeX/biblioteca}
+
+
+\end{document}
