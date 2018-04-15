@@ -1,5 +1,8 @@
 *~
 *.aux
+*.bak
+*.bbl
+*.blg
 *.log
 *.out
 *.toc
