@@ -1412,7 +1412,7 @@ FUNCTION {misc}
   format.authors output
   author format.key output
   new.block
-  format.title output
+  format.title emphasizeB output
   new.block
   howpublished "howpublished" bibinfo.check output
   format.date "year" output.check
