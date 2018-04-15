@@ -1475,6 +1475,7 @@ FUNCTION {techreport}
   author format.key output
   new.block
   format.title
+  emphasizeB
   "title" output.check
   new.block
   format.tr.number output.nonnull
