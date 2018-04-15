@@ -3,6 +3,7 @@
 *.bak
 *.bbl
 *.blg
+*.dbj
 *.log
 *.out
 *.toc
