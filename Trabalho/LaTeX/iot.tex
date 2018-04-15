@@ -328,7 +328,8 @@ se movimentam para estudar, testar e implantar soluções concetadas. O Reino Un
 por exemplo, estabeleceu para si a meta de se tornar, através do investimento em IoT,
 a ``nação mais digital entre os componentes do G8\footnote{França, Alemanha, Reino Unido,
   Japão, Canadá, Itália, Estados Unidos e Rússia (esta foi afastada recentemente sob
-  a acusação de violaão da soberania nacional da Ucrânia).}''~\citep{UKGOSWalportIoT2014}.
+  a acusação de violaão da soberania nacional da Ucrânia).}'' e 
+``o líder mundial no desenvolvimento e implementação da IoT''~\citep{UKGOSWalportIoT2014}.
 
 E por que toda essa agitação em torno da IoT? Porque as suas aplicações
 são praticamente inesgotáveis, variando desde uma simples
@@ -355,15 +356,75 @@ Além disso este trabalho apresentará uma breve descrição de um protótipo de
 cofre conectado à Internet por um Arduino\footnote{\url{https://www.arduino.cc/}},
 que será desenvolvido pelos autores como uma prova de conceito da IoT.
 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\subsection{}
-%\label{subetiqueta}
+\section{Conceitos e definições}
+\label{conceitos}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\subsubsection{Subsubseção}
-%\label{subsubetiqueta}
+\subsection{O que é IoT?}
+\label{conceitos-o-que-e-iot}
+
+Não existe um consenso estabelecido sobre o que realmente é a IoT e qual a melhor
+maneira de definí-la. Isso ocorre devido a relativa pouca idade e maturação do
+campo, devido às diverentes visões dos dispositivos pioneiros de IoT, e devido
+ao praticamente ilimitado potencial de uso para diferentes atividades e serviços
+em diversas áreas (indústria, doméstica, saúde, financeira, engenharia e muitas
+outras). Se a IoT estará presente em ``tudo'' e servirá para ``tudo'', como
+definí-la precisamente?
+
+Inicialmente vamos eliminar uma visão simplória e quase caricata da IoT: a
+``geladeira conectada que compra leite fresco'' (Figura~\ref{fig:smart-geladeira}).
+\citet{UKGOSWalportIoT2014}
+argumenta que esse tipo de estereótipo somente contribui para ``trivializar
+a importância da IoT'' e mascarar o verdadeiro potencial de impacto na sociedade.
+Eletrodomésticos conectados são uma pequena parte da IoT, mas não a mais
+importante.
+
+\begin{figure}[H]
+  \begin{center}
+    \caption{``A porta-voz da Samsung, Kai Madden, exibe o recurso de conectividade em
+      uma geladeira inteligente Samsung''~\citep{BajarinIoE2014}.}
+    \label{fig:smart-geladeira}
+    \fbox{\includegraphics[scale=0.8]{imagens/geladeira.jpeg}}
+    \newline
+    \footnotesize{Foto de David Becker, retirada do artigo de ~\citet{BajarinIoE2014},
+      disponível em \url{http://time.com/539/the-next-big-thing-for-tech-the-internet-of-everything/}}
+  \end{center}
+\end{figure}
+
+Se a IoT não se resume a eletrodomésticos conectados, o que ela é de fato? As
+grandes empresas de tecnologia definem IoT do seguinte modo:
+
+\begin{itemize}
+\item \emph{\textbf{SAP}}: ``A Internet das Coisas é uma rede de objetos físicos --- veículos,
+  máquinas, eletrodomésticos e outros --- que usam sensores e APIs para conectar e
+  trocar dados na Internet''~\citep{SAPWhatIoT}.
+\item \emph{\textbf{SAS}}: ``A Internet das Coisas é o conceito de objetos do cotidiano --- de
+  máquinas industriais à dispositivos vestíveis ---- usando sensores embutidos para coletar
+  dados e tomar uma ação sobre esses dados através da rede''\citep{SASWhatIoT}.
+\item \emph{\textbf{IBM}}: ``A Internet das Coisas refere-se à variedade crescente
+  de dispositivos conectados que enviam dados através da Internet. Uma 'coisa' é qualquer
+  objeto com eletrônica embarcada que pode transferir dados em uma rede --- sem nenhuma
+  interação humana''~\citep{IBMWhatIsIoT,IBMWhatsonIoT}.
+\item \emph{\textbf{Cisco}}: ``A Internet das Coisas (IoT) refere-se simplesmente à conexão
+  em rede de objetos físicos''~\citep{CiscoIoTVS2013}.
+\item \emph{\textbf{Amazon}}: ``Um sistema de dispositivos ubíquos conectando o mundo
+  físico à nuvem''~\citep{AmazonIoT}.
+\item \emph{\textbf{Microsoft}}: embora a Microsoft não defina explicitamente o que
+  ela entende por IoT, em um vídeo institucional sobre a plataforma \emph{Microsoft IoT}
+  podemos deduzir que o conceito de IoT envolve conectar as partes mais vitais de
+  seu negócio (pessoas, ativos, processos e sistemas), do chão de fábrica aos ``campos''
+  para aumentar o alcançe da empresa e fazer melhor uso dos recursos~\citep{MicrosoftIoT}.
+\item \emph{\textbf{Google}}: a empresa também não fornece uma definição explícita mas
+  sua plataforma \emph{Google Cloud IoT Core} está voltada à ``conexão segura, coleta e
+  gerenciamento de dados a partir de milhões de dispositivos globalmente dispersos [\ldots]
+  para processar, analisar e visualizar dados em tempo real para suportar o aumento
+  da eficiência operacional''~\citep{GoogleWhatsIoT}.
+\end{itemize}
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
