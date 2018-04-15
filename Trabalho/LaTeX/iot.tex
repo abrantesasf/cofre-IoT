@@ -280,7 +280,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 \title{Internet das Coisas}
-\author{Abrantes Araújo Silva Filho}
+\author{Abrantes Araújo Silva Filho \and Brendhom Félix Garcia Brito
+  \and Carlos Augusto Caus Couto \and Eliziel de Paula da Silva \and Iuri Alves Contarelli
+  \and Victor Luchsinger Lube}
 \date{2018-04-19}
 \maketitle
 \tableofcontents
@@ -289,69 +291,79 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Seção}
-\label{etiqueta}
+\section{Introdução}
+\label{intro}
 
+Nos últimos anos a tecnologia permitiu a criação e o desenvolvimento de dispositivos com a
+capacidade de se conectar à Internet e de trocar informações. Esses dispositivos,
+segundo \citet{BarbozaTCCIoT2015}, ``são objetos físicos, 'coisas', que passam
+a alojar sistemas eletrônicos embarcados com componentes de \ingles{software},
+sensores e, principalmente conectividade, que permite a esses objetos trocarem
+informações através da rede''.
+
+Apesar de não haver um consenso na definição do campo de ``dispositivos conectados'',
+o nome Internet das Coisas --- do inglês \ingles{Internet of Things} (IoT)\footnote{Neste trabalho
+  usaremos o termo ``IoT'' para indicar todo o ecossistema de dispositivos conectados.} --- passou
+a significar todo o ecossistema de \ingles{hardware} e \ingles{software} que
+permite a conexão dos dispositivos entre si e à Internet.
+
+A produção em escala desses dispositivos para IoT com a conseqüente queda no custo
+de produção, aliado à enorme distribuição de redes de conectividade \ingles{wireless},
+expandiu de forma exponencial as possibilidades de uso e lucratividade com
+tal tecnologia. No ano de 2013 a Cisco estimou que esse potencial
+de mercado era de 14,4 trilhões de dólares em dez anos\footnote{De 2013 a 2022, considerando
+o mercado global.}~\citep{CiscoIoTFAQ2013},
+e que até 2020 haverá 50,1 bilhões de dispositivos conectados à Internet,
+realizando diversas tarefas e serviços~\citep{CiscoIoEConnectionsCounter}.
+
+Além das empresas de tecnologia, grandes consultoras de negócios internacionais
+já apontam o enorme potencial da IoT, explicitamente aconselhando
+seus clientes a investirem na área.
+A Morgan Stanley publicou dois relatórios~\citep{MorganStanleyIoTnow2013,MorganStanleyIoTpersonal2014}
+que apontam enorme potencial de ganhos, e a \citet{OliverWymanIoT2015} classifica
+a IoT como ``uma nova revolução capaz de romper os modelos de negócios tradicionais''.
+
+Até mesmo governos, que geralmente são mais lentos na adoção de novas tecnologias, já
+se movimentam para estudar, testar e implantar soluções concetadas. O Reino Unido,
+por exemplo, estabeleceu para si a meta de se tornar, através do investimento em IoT,
+a ``nação mais digital entre os componentes do G8\footnote{França, Alemanha, Reino Unido,
+  Japão, Canadá, Itália, Estados Unidos e Rússia (esta foi afastada recentemente sob
+  a acusação de violaão da soberania nacional da Ucrânia).}''~\citep{UKGOSWalportIoT2014}.
+
+E por que toda essa agitação em torno da IoT? Porque as suas aplicações
+são praticamente inesgotáveis, variando desde uma simples
+\ingles{Smart-TV} capaz de se conectar à Internet e atualizar a programação de
+filmes disponíveis ou de um simples sistema de irrigação de jardim capaz de
+obter a previsão de chuva a partir de serviços na Internet e ajustar a periodicidade
+na qual a grama será molhada, até dispositivos complexos como um marca-passo cardíaco
+capaz de informar automaticamente ao médico ou uma equipe de emergência uma possível
+disfunção miocárdica que exija tratamento imediato.
+
+Este trabalho pretende apresentar uma visão geral do campo da IoT, incluindo os
+seguintes tópicos:
+
+\begin{itemize}[noitemsep]
+\item Definições e conceitos
+\item Histórico
+\item Vantagens e desvantagens
+\item Riscos e perigos
+\item Exemplos de aplicações (que deram certo e errado)
+\item Tecnologias utilizadas
+\end{itemize}
+
+Além disso este trabalho apresentará uma breve descrição de um protótipo de
+cofre conectado à Internet por um Arduino\footnote{\url{https://www.arduino.cc/}},
+que será desenvolvido pelos autores como uma prova de conceito da IoT.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Subseção}
-\label{subetiqueta}
+%\subsection{}
+%\label{subetiqueta}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Subsubseção}
-\label{subsubetiqueta}
-
-Lorem ipsum dolor sit amet~\citep{9788537810415}, consectetur adipiscing elit. Aliquam congue nunc nec sodales cursus. Praesent iaculis sem id ex laoreet, vel pharetra quam mollis. Etiam egestas vehicula viverra. Aenean interdum lobortis lorem, sed facilisis justo ultricies et. Nulla facilisi. In non metus tellus. Aliquam porta, nibh a dictum pulvinar, nulla nibh auctor mauris, eu tristique magna nisi nec tortor. Nunc lacinia mattis sollicitudin. Donec tristique faucibus nulla ut fringilla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Morbi facilisis, erat vel consequat pretium, diam purus volutpat nisl, vel gravida eros dolor at erat. Donec et lectus tristique, mattis metus eu, venenatis nunc. Etiam non tortor rutrum, laoreet augue in, dictum tortor. Vivamus imperdiet lectus id sagittis congue.
-
-Integer commodo velit nec fringilla fringilla~\citep{9780443074448}. Donec non lobortis lacus. In eget ligula non erat tempor pretium id mattis dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam scelerisque, metus sed vehicula dignissim, mauris massa tincidunt dolor, id viverra elit ex non libero. In dapibus facilisis laoreet. Vivamus mattis nisl vel auctor auctor.
-
-Nunc viverra~\citep{Cormen2009}, leo at posuere consectetur, dolor neque congue risus, ac elementum risus augue nec turpis. Sed cursus justo ac mollis accumsan. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam dictum sed erat sit amet tristique. Nulla a iaculis nibh. Proin pellentesque elementum arcu, vitae sodales leo mattis nec. Etiam posuere non tortor id feugiat. Mauris scelerisque sagittis molestie. Etiam quis leo at orci pellentesque placerat eu eu elit. Suspendisse ultrices odio velit, non fermentum velit sagittis in. Quisque convallis nulla at porta facilisis. Cras consequat et nisi eu euismod. Vestibulum congue dictum leo, sit amet hendrerit justo viverra id. Maecenas porta gravida est sit amet venenatis.
-
-Suspendisse porttitor nunc maximus~\citep{FitzgeraldShiloh2013}, ultricies dolor vel, consequat nisi. Donec nisl nisl, porta non lacinia id, lacinia sit amet erat. Praesent at est tortor. Suspendisse potenti. Praesent non purus egestas, interdum mi non, vestibulum ex. Nulla rutrum, neque eget sodales dignissim, nisi orci facilisis dui, at dapibus nulla enim sed risus. Vivamus eleifend eros eget arcu aliquet, vel varius sapien sollicitudin. Donec mattis tortor sit amet ligula tristique, at congue lorem aliquam.
-
-Quisque condimentum felis quis mauris vehicula, ac dignissim velit porta. Aliquam sodales urna ut tortor posuere dictum. Donec eget tincidunt magna. Aenean non elementum mi. Aliquam convallis sem at lorem tincidunt, sed semper dolor elementum. Aliquam et cursus ipsum, sed convallis diam. Mauris venenatis, mi ut fringilla varius, mauris dolor efficitur nibh, a consequat libero nisl et diam. Fusce efficitur felis sed dui malesuada bibendum. Sed ullamcorper felis ut sem fringilla, et consequat urna eleifend. Sed sit amet rutrum neque. Vivamus posuere nisl ex, et feugiat nisi interdum elementum. Praesent et consectetur sem.
-
-Duis tempus lectus purus, sit amet convallis urna tempus sed. Aliquam ultrices arcu et augue pretium lacinia. Nullam vel molestie lectus. Cras sodales vehicula lectus et sodales. Suspendisse condimentum a diam id egestas. Integer est lectus, gravida at arcu at, euismod consectetur erat. Cras porta, justo eget tempus commodo, nunc velit convallis magna, id ultrices arcu dui ut mi. Etiam porta nunc libero, et sodales nulla fermentum eget. Cras imperdiet, augue non varius elementum, ante lectus luctus arcu, ut venenatis erat diam at dui. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Vestibulum dolor purus, viverra eget dictum non, ultrices vel urna. Nunc dapibus risus tellus, quis porttitor lorem euismod a. Vivamus gravida est sit amet consequat pulvinar. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-
-Fusce tempus sem ipsum. Quisque congue commodo lectus sit amet malesuada. Nunc eros leo, pretium a velit non, varius sollicitudin mi. Nulla at varius quam, ut hendrerit mi. Suspendisse sit amet nulla posuere, tincidunt orci in, gravida augue. Nulla felis justo, euismod et vehicula in, tristique iaculis dui. Aenean et dolor metus. In pretium nunc vel augue aliquam, sed interdum ex luctus. Vestibulum dapibus sodales metus, ut porta nibh dignissim non.
-
-Nulla interdum suscipit posuere. Sed eget augue lacus. Sed ex ipsum, mattis semper elit vitae, consequat lobortis erat. Suspendisse vitae tortor id nulla vulputate convallis nec sit amet lacus. Cras euismod ipsum eu ipsum tempus, ac tempor ex vehicula. Sed rutrum ornare dictum. Morbi efficitur vehicula nibh id convallis.
-
-Vivamus ornare et enim id sodales. Integer quis cursus nunc. Morbi sagittis, odio vitae commodo varius, nibh urna tempus nunc, in faucibus nisi nulla non ante. Ut eget lacinia ex. Cras laoreet quam ligula, nec blandit libero pretium in. In facilisis gravida lorem, at maximus nulla feugiat et. Vestibulum efficitur feugiat tempus. Suspendisse eu dapibus nunc.
-
-Nullam vitae libero imperdiet ex pretium ultrices. In tempus viverra aliquam. Pellentesque vel dui egestas, imperdiet arcu eget, pulvinar libero. Cras ut malesuada augue, in sollicitudin erat. Fusce cursus, urna quis lacinia bibendum, arcu arcu tempus nisi, at porttitor lectus nunc ut augue. Nunc consequat eget felis id sodales. Pellentesque gravida sit amet orci a fermentum. Proin urna ante, convallis ac scelerisque eget, laoreet a velit. Proin egestas viverra justo nec iaculis. Phasellus vel elementum orci. Pellentesque sollicitudin ornare nisi.
-
-Integer luctus nunc id posuere sodales. Proin vel mauris ac metus suscipit placerat. Maecenas euismod nisi id nulla condimentum, in laoreet quam ultricies. Donec quis mollis sem. Ut sollicitudin vestibulum est sed gravida. Donec commodo consequat volutpat. Fusce non nisi pulvinar, maximus leo ut, mollis dui. Morbi efficitur risus in tellus vestibulum porta. Nulla facilisi. Nullam lobortis iaculis felis sit amet gravida.
-
-In odio est, viverra non aliquet at, pretium non purus. Nulla facilisi. Pellentesque nec lectus non lacus efficitur convallis sed at dolor. Aliquam consectetur sem eu eros tristique tempus. Pellentesque orci risus, tempor nec augue eget, auctor ullamcorper eros. Vestibulum congue nisi efficitur, ultrices eros ac, fermentum purus. In sodales ex eu aliquam ultrices. Integer vehicula lacus ex, nec aliquam arcu efficitur quis. Donec nec fringilla turpis. Proin dolor diam, auctor a interdum in, congue eu sem. Pellentesque consectetur efficitur nisi, ut porta leo porta at. Aenean ut libero a augue eleifend cursus et non justo. Duis sodales, libero vitae accumsan tincidunt, ligula leo tristique ante, nec efficitur arcu ipsum nec urna. Vivamus porta, justo ut sollicitudin ultricies, nisl ex venenatis lacus, vitae facilisis justo massa sit amet enim. Vestibulum sagittis mi dolor, in placerat leo pharetra ac.
-
-Morbi efficitur maximus blandit. Donec non eros non turpis viverra molestie nec et diam. Integer congue malesuada egestas. Curabitur eget eros maximus, venenatis quam tempus, aliquet ipsum. Morbi vel lobortis nisl. Nam quis nunc ullamcorper, mattis velit vitae, sodales ipsum. Pellentesque erat velit, dignissim et tellus at, ultrices mollis augue. Suspendisse enim ligula, blandit imperdiet porta id, sodales in tortor. Nullam dignissim, dolor vel maximus hendrerit, velit enim scelerisque velit, non tincidunt nisi libero at ipsum. Phasellus condimentum ex ac augue fermentum, eget convallis velit volutpat. Praesent sed hendrerit elit. In placerat, massa non imperdiet commodo, metus lorem elementum odio, id sodales urna ex quis augue. Mauris luctus maximus lacus, nec placerat felis hendrerit in. In mollis, quam vitae congue interdum, arcu mi lobortis arcu, vitae viverra felis enim vitae lorem.
-
-Maecenas et nisi eu mi egestas luctus. Morbi lorem ipsum, viverra id est ut, ultricies semper ante. Aenean lacinia nulla sed mauris lacinia, ac sagittis eros interdum. Nam vestibulum quis neque eget tincidunt. Donec quis convallis dolor, dignissim volutpat ipsum. Vivamus egestas ultrices neque, ac dapibus nulla lacinia convallis. Nam blandit eros quis est pulvinar eleifend. Duis id nulla bibendum, mollis massa in, finibus diam. Quisque ac blandit dui. Nunc sagittis, purus nec sagittis congue, felis orci maximus metus, id ornare eros urna vel enim. Pellentesque semper sapien non rhoncus semper. Donec ultricies consectetur augue, non volutpat sapien imperdiet non. Nulla volutpat suscipit tortor, in fermentum metus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam varius, mi non feugiat pretium, dui quam sodales odio, id laoreet sapien metus eu nibh.
-
-Sed imperdiet tellus at ipsum lobortis placerat. Nulla pellentesque mauris risus, id feugiat risus tristique eu. Etiam sit amet faucibus magna, sit amet posuere arcu. Proin vehicula felis id odio aliquet rhoncus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nam ultrices congue pretium. Aliquam nec aliquet nunc. Sed laoreet vestibulum rhoncus.
-
-Vivamus tempor justo at tortor tristique vehicula. Praesent fringilla felis eu enim ultrices, ut finibus ante volutpat. Aliquam dui quam, mattis ut mollis ac, condimentum ut nunc. Aenean et sagittis augue, ut aliquam erat. Pellentesque tincidunt dictum lorem, nec dictum felis mattis quis. Donec rhoncus gravida mauris ut viverra. Integer eu fermentum sapien. Sed vel tortor in lacus tempor commodo. Donec non sapien sed lectus placerat faucibus. Nunc in leo libero.
-
-Nullam tincidunt vel nunc eget tincidunt. Vestibulum eu tincidunt arcu, in commodo ipsum. Quisque felis tortor, lacinia lacinia gravida in, pharetra eget velit. Cras efficitur dolor augue, vitae tincidunt ligula pellentesque sed. Cras accumsan tempor sapien, eu fermentum purus pulvinar eu. Praesent ut venenatis magna. Morbi euismod, elit sit amet congue posuere, nulla arcu fringilla justo, non lacinia nibh nunc eget nisi. Cras quis pulvinar mauris. Cras ex urna, blandit a augue ac, placerat efficitur dolor. Sed porttitor elit vel ligula accumsan facilisis. Etiam sagittis interdum leo quis lacinia.
-
-Sed bibendum pulvinar felis at posuere. In aliquet et orci sit amet dignissim. Maecenas luctus, ipsum vitae faucibus vestibulum, augue lectus vestibulum erat, quis lacinia purus leo vel nisl. Ut pretium ante sed ligula interdum, at maximus mi ullamcorper. Nulla non eros id mi facilisis gravida sit amet eu ex. Nam venenatis orci non semper convallis. Duis suscipit ante non nunc dignissim, non convallis mauris cursus. Fusce tristique risus id tortor cursus gravida. Aliquam faucibus non massa sed dignissim. Nulla scelerisque ornare sagittis. Donec eleifend suscipit pretium. Nam auctor tempor sapien a facilisis.
-
-In commodo aliquam mauris. Nulla facilisi. Curabitur hendrerit tristique diam, vel malesuada orci ultricies id. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec commodo molestie diam. Phasellus sapien quam, gravida id tellus at, dignissim placerat mi. Praesent et fringilla ipsum, vitae maximus nisi. Nulla interdum ut dui ut viverra. Praesent nec aliquet nisi. Suspendisse nec lorem quis justo ultrices maximus. Aenean ultrices tincidunt lacus vitae ultricies.
-
-Integer mi felis, lobortis quis arcu a, volutpat sagittis metus. Integer eget rhoncus neque, at lacinia libero. Vestibulum dignissim convallis quam vel fringilla. Vivamus sit amet consequat ex. Vivamus purus leo, eleifend eu purus vitae, commodo interdum ante. Suspendisse vel euismod lectus. Sed tempus enim ut libero rhoncus vehicula. Pellentesque scelerisque luctus porttitor. Quisque pellentesque efficitur ante, sit amet dapibus diam condimentum eget.
-
-Phasellus ornare sagittis mi ac euismod. Integer at leo nec lorem maximus consequat. Nulla nec eleifend neque. Mauris eget interdum neque. Aenean quis rutrum ligula. In condimentum, tortor at tempus sollicitudin, mauris nisl finibus leo, ac rutrum lorem nibh ac massa. Vestibulum vitae dictum lorem, sed maximus arcu. Ut venenatis sem facilisis massa imperdiet sagittis. In sed semper erat, convallis tincidunt eros. Ut ut lacus vitae turpis tincidunt gravida id a lorem. Morbi vitae leo ut sapien faucibus pretium ac at ante. Suspendisse potenti. Sed nec aliquet nisi, in laoreet tellus. Integer efficitur ac libero euismod gravida.
-
-Aliquam efficitur, dolor ac posuere efficitur, urna ligula tristique purus, in fringilla dolor quam nec ex. Morbi laoreet blandit ligula suscipit tincidunt. Aenean a nisi vitae lorem dictum fringilla. Nam tincidunt luctus feugiat. Vivamus sed fringilla lectus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed congue sapien lorem, condimentum facilisis ligula iaculis quis. Aliquam fermentum in est id lobortis.
-
-Quisque luctus consequat velit, non pellentesque ante iaculis nec. Donec dictum sem vitae mattis commodo. Suspendisse potenti. Fusce lacinia rutrum nisi, eget pellentesque eros elementum vel. Quisque pharetra vehicula risus et tincidunt. Suspendisse ut lectus gravida leo luctus mollis. Mauris semper leo dapibus, scelerisque leo in, dignissim libero. Integer pretium orci odio, placerat viverra eros consequat at. Nullam fermentum vitae nibh at congue. Pellentesque et tortor eget odio mattis euismod at nec sapien.
-
-Nunc sagittis, ligula sed fermentum egestas, nisl sapien dictum tortor, eu facilisis quam eros nec sem. Suspendisse velit orci, vestibulum vel elit eget, iaculis interdum ligula. Cras sodales pretium velit at hendrerit. Nulla lacus urna, faucibus ac vestibulum at, lobortis a nunc. Praesent sagittis justo ac eros sagittis auctor. Sed accumsan molestie sapien, at efficitur velit vehicula ac. Donec sagittis, elit eu consequat dignissim, risus enim lacinia dolor, sed rutrum mi magna id leo. Sed cursus, arcu sed dignissim bibendum, quam orci fringilla mi, non tincidunt augue leo nec augue. Nunc dignissim elit sed elit tempor, in maximus mi aliquet. Nulla facilisi.
-
-Phasellus ut sapien sit amet enim elementum semper. Suspendisse rutrum vitae purus id tincidunt. Aliquam semper dui vitae metus vestibulum, non ornare nisi gravida. Aliquam ac neque laoreet, malesuada justo ut, mattis nunc. Nam molestie dui id enim facilisis, eu efficitur justo laoreet. Cras dictum est ipsum, nec sagittis orci malesuada id. Vivamus molestie lorem ullamcorper leo aliquet, sit amet dignissim orci cursus. Pellentesque eu nisi tempus, feugiat arcu vitae, bibendum mauris. Nulla efficitur augue ac tellus tincidunt feugiat. Nullam hendrerit ut sapien non rhoncus. Vivamus mollis molestie ex. Interdum et malesuada fames ac ante ipsum primis in faucibus. Proin tincidunt congue orci vitae malesuada. Suspendisse tempus ex in elit accumsan, in sagittis mauris lobortis. 
+%\subsubsection{Subsubseção}
+%\label{subsubetiqueta}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -363,9 +375,5 @@ Phasellus ut sapien sit amet enim elementum semper. Suspendisse rutrum vitae pur
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
 \bibliography{/home/abrantesasf/repositoriosGit/BibTeX/biblioteca}
-
-
 \end{document}
