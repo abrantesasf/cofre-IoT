@@ -271,7 +271,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Hifenização específica quando o LaTeX/Babel não conseguirem hifenizar:
-\babelhyphenation{Git-Hub au-to-con-fi-gu-rá-vel}
+\babelhyphenation{Git-Hub au-to-con-fi-gu-rá-vel i-den-ti-fi-ca-ção quan-do}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -312,10 +312,16 @@ o nome Internet das Coisas --- do inglês \ingles{Internet of Things} (IoT)\foot
 a significar todo o ecossistema de \ingles{hardware} e \ingles{software} que
 permite a conexão dos dispositivos entre si e à Internet.
 
-A produção em escala desses dispositivos para IoT com a conseqüente queda no custo
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Potencial da IoT}
+\label{intro-potencial}
+
+A produção em escala dos dispositivos para IoT com a conseqüente queda no custo
 de produção, aliado à enorme distribuição de redes de conectividade \ingles{wireless},
 expandiu de forma exponencial as possibilidades de uso e lucratividade com
-tal tecnologia. No ano de 2013 a Cisco estimou que esse potencial
+tal tecnologia.
+
+No ano de 2013 a Cisco estimou que esse potencial
 de mercado era de 14,4 trilhões de dólares em dez anos\footnote{De 2013 a 2022, considerando
 o mercado global.}~\citep{CiscoIoTFAQ2013},
 e que até 2020 haverá 50,1 bilhões de dispositivos conectados à Internet,
@@ -344,6 +350,10 @@ obter a previsão de chuva a partir de serviços na Internet e ajustar a periodi
 na qual a grama será molhada, até dispositivos complexos como um marca-passo cardíaco
 capaz de informar automaticamente ao médico ou uma equipe de emergência uma possível
 disfunção miocárdica que exija tratamento imediato.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Objetivos deste trabalho}
+\label{intro-objetivos}
 
 Este trabalho pretende apresentar uma visão geral do campo da IoT, incluindo os
 seguintes tópicos:
@@ -388,15 +398,15 @@ a importância da IoT'' e mascarar o verdadeiro potencial de impacto na sociedad
 Eletrodomésticos conectados são uma pequena parte da IoT, mas não a mais
 importante.
 
-\begin{figure}[H]
+\begin{figure}[h]
   \begin{center}
     \caption{``A porta-voz da Samsung, Kai Madden, exibe o recurso de conectividade em
       uma geladeira inteligente Samsung''~\citep{BajarinIoE2014}.}
     \label{fig:smart-geladeira}
     \fbox{\includegraphics[scale=0.8]{imagens/geladeira.jpeg}}
 
-    \footnotesize{Foto de David Becker, retirada do artigo de ~\citet{BajarinIoE2014},
-      disponível em \url{http://time.com/539/the-next-big-thing-for-tech-the-internet-of-everything/}}
+    \footnotesize{Foto de David Becker, retirada do artigo de ~\citet{BajarinIoE2014}}%,
+%      disponível em \url{http://time.com/539/the-next-big-thing-for-tech-the-internet-of-everything/}}
   \end{center}
 \end{figure}
 
@@ -501,7 +511,7 @@ O \ingles{software} inlcui os sistemas embarcados nos dispositivos, os sistemas
 nos servidores, os sistemas de coleta e análise de dados ou qualquer outro
 sistema ou programa para que a IoT funcione adequadamente.
 
-\begin{figure}[H]
+\begin{figure}[h]
   \begin{center}
     \caption{Ecossistema, características e escopo da IoT.}
     \label{fig:ecossistema1}
@@ -511,7 +521,7 @@ sistema ou programa para que a IoT funcione adequadamente.
   \end{center}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[h]
   \begin{center}
     \caption{Ecossistema da IoT.}
     \label{fig:ecossistema2}
@@ -561,8 +571,100 @@ possa ser alcançada \citep{UKGOSWalportIoT2014}.
 \subsection{Breve histórico}
 \label{o-que-e-iot-historia}
 
-xxx
+Pode-se afirmar que a história da IoT está intimamente ligada ao desenvolvimento
+da tecnologia de \ingles{Radio-Frequency Identification (RFID)}, cujas raízes
+tecnológicas podem ser verificáveis desde a segunda guerra mundial~\citep{IEEEIoTDefinition}.
+Os países em guerra já utilizavam radares para detectar a aproximação de aviões,
+mas não existia um jeito de dizer se os aviões eram de inimigos se aproximando
+ou se eram aviões amigos retornando de uma missão. Os alemães foram os
+primeiros a descobrir que, se os pilotos executassem manobras de ``rolamento''
+com os aviões, isso alterava o sinal do radar e permita aos operadores em terra
+saber se os aviões eram alemães ou se eram aviões inimigos. Essencialmente
+isso era o primeiro sistema de RFID passivo.
 
+Os britânicos logo desenvolveram um sistema ativo de identificação: quan-do
+um avião britânico recebia um sinal de radares britânicos, ele repondia através
+do \emph{broadcast} de um sinal que era percebido pelos operadores em terra
+como um avião amigo~\citep{IEEEIoTDefinition}.
+
+Segundo o~\citet{IEEEIoTDefinition} a tecnologia RFID funciona basicamente
+através do mesmo conceito: ``um sinal é enviado a um tipo de \emph{transponder}
+que 'acorda' e ou reflete de volta (RFID passivo) ou realiza
+um \emph{broadcast} (RFID ativo) de um sinal''.
+
+Após a guerra, durante as décadas de 1950 e 1960, cientistas e acadêmicos
+continuaram a desenvolver tecnologias de rádio-freqüência para identificar
+objetos remotamente. Empresas começaram a comercializar sistemas anti-furto
+que funcionavam com uma \ingles{tag} eletrônica capaz de informar se o produto
+foi pago ou não. Esse sitema, em uso ainda hoje, é composto por \ingles{tags}
+que armazenam apenas 1 \ingles{bit} --- 0 (o produto foi pago) ou 1 (o produto não
+foi pago) --- e leitores de rádio-freqüência que são instalados nas portas
+das lojas~\citep{IEEEIoTDefinition}.
+
+Outros avanços importantes da área de identificação por rádio-freqüência, que
+contribuíram para o desenvolvimento da IoT, foram:
+
+\begin{itemize}
+\item \emph{RFID ativo com memória regravável}: a primeira patente de um sistema de RFID ativo,
+  com memória regravável foi obtida por Maria W. Cardullo, em 1973. Maiores informações
+  sobre essa tecnologia podem ser encontradas no artigo de \citet{CardulloRFIDGenesis2003}.
+\item \emph{Cartões fechadura}: também em 1973, Charles Walton desenvolveu um sistema
+  de cartões plásticos com \ingles{transponders RFID} embutidos, capazes de abrir
+  portas sem a necessidade de chaves~\citep{IEEEIoTDefinition}. Esse sistema é
+  utilizado ainda hoje em hotéis, por exemplo.
+\item \emph{Sistemas automáticos de pagamento de pedágio}: durante a década de 1970,
+  cientistas do \emph{Los Alamos National Laboratory} desenvolveram uma tecnologia
+  para rastrear o transporte de manterial de bombas nucleares, usando RFIDs com
+  capacidade de armazenar maiores informações. Em 1980 esses mesmos cientistas
+  fundaram uma empresa e passaram a vender essa tecnologia, agora voltada
+  para uso civil, em um sistema de pagamento automático de pedagios (que está em uso
+  até hoje)~\citep{IEEEIoTDefinition}.
+\item \emph{Rastreamento de gado}: os cientistas do \emph{Los Alamos National Laboratory}
+  também desenvolveram um sistema de rastreamento e identificação única voltado
+  para gado, para monitorar a localização dos animais e as doses de hormônios e
+  vacinas que eles já tinham recebido~\citep{IEEEIoTDefinition}.
+\end{itemize}
+
+Pela lista acima podemos ver que a aplicação da tecnologia RFID foi sendo
+expandida: não servia mais só para identificar um objeto, mas também armazenar
+dados sobre esse mesmo objeto. Isso era um grande avanço, mas gerava um problema:
+armazenar diversos dados em uma \ingles{tag} RFID levava ao aumento do custo
+unitário. A idéia era boa, mas era necessário alguma inovação que barateasse o
+sistema. Essa inovação começou a surgir em 1990: no início da década de 1990
+a IBM patenteou um sistema de \emph{Ultra-High Frequency} (UHF) RFID, tornando
+possível que a leitura dos dados da \emph{tag} fosse feita a uma distância maior
+do que até então era possível e com uma rápida velocidade de
+transferência~\citep{IEEEIoTDefinition}.
+
+Em 1999 foi fundado, no \ingles{Massachusetts Institute of Technology (MIT)}, um
+laboratório de inovação chamado de \emph{Auto-ID Center}, cujo objetivo era
+desenvolver inovação na área de identificação por rádio-freqüência baseando-se
+na tecnologia de UHF RFID desenvolvida pela IBM. Dois cientistas do \ingles{Auto-ID Center},
+David Brock e Sanjay Sarma, foram os pioneiros em investigar a possibilidade
+de usar \ingles{tags} UHF RFID de baixo custo em todos os produtos da cadeia
+de suprimento. A idéia deles era colocar apenas o número de série de cada produto
+na \ingles{tag}, barateando seu custo, e manter os dados detalhados de cada
+produto em um banco de dados que seria acessível pela Internet~\citep{IEEEIoTDefinition}.
+\textbf{Assim nasceu a conexão das coisas com a Internet}.
+
+Para Roberti, citado em \citet{IEEEIoTDefinition}:
+\begin{quote}
+``Sarma e Brock
+essencialmente mudaram a maneira como as pessoas pensavam sobre o RFID na
+cadeia de suprimentos. Antes, as \ingles{tags} eram um banco de dados móvel
+que carregavam informações sobre o produto à medida em que esse produto
+seguia seu curso. Sarma e Brock \textbf{tornaram o RFID em uma tecnologia de rede
+  através da ligação de objetos com a Internet através das \ingles{tags}}.'' [grifos
+  nossos]
+\end{quote}
+
+A criação do termo \ingles{Internet of Things (IoT)} é atualmente creditada à Kevin Ashton,
+na época o diretor executivo do \ingles{Auto-ID Center}, mas existe uma certa
+controvérsia quanto a isso pois segundo Daniel Engels (também um dos
+diretores), citado por~\citet{IEEEIoTDefinition},
+o termo foi usado pela primeira vez em 1997 em uma publicação da
+\ingles{International Telecommunication Union (ITU)}, e Kevin Ashton disse
+que cunhou o termo em 1999~\citep{AshtonIoT2009}.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
