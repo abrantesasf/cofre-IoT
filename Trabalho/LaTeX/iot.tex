@@ -312,6 +312,8 @@ o nome Internet das Coisas --- do inglês \ingles{Internet of Things} (IoT)\foot
 a significar todo o ecossistema de \ingles{hardware} e \ingles{software} que
 permite a conexão dos dispositivos entre si e à Internet.
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Potencial da IoT}
 \label{intro-potencial}
@@ -351,6 +353,8 @@ na qual a grama será molhada, até dispositivos complexos como um marca-passo c
 capaz de informar automaticamente ao médico ou uma equipe de emergência uma possível
 disfunção miocárdica que exija tratamento imediato.
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Objetivos deste trabalho}
 \label{intro-objetivos}
@@ -374,10 +378,12 @@ que será desenvolvido pelos autores como uma prova de conceito da IoT.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{O que é IoT?}
 \label{o-que-e-iot}
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Definição e conceitos}
 \label{o-que-e-iot-definicao}
@@ -495,6 +501,7 @@ Dissecando a definição da IEEE podemos compreender melhor cada parte da IoT:
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Ecossistema da IoT}
 \label{o-que-e-iot-ecossistema}
 
@@ -567,6 +574,7 @@ serviços, existem grandes obstáculos a serem superados até que essa visão de
 possa ser alcançada \citep{UKGOSWalportIoT2014}.
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Breve histórico}
 \label{o-que-e-iot-historia}
@@ -664,7 +672,107 @@ controvérsia quanto a isso pois segundo Daniel Engels (também um dos
 diretores), citado por~\citet{IEEEIoTDefinition},
 o termo foi usado pela primeira vez em 1997 em uma publicação da
 \ingles{International Telecommunication Union (ITU)}, e Kevin Ashton disse
-que cunhou o termo em 1999~\citep{AshtonIoT2009}.
+que cunhou o termo em 1999~\citep{AshtonIoT2009,PressIoT2014}.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Outros tipos de ``internet das coisas''}
+\label{o-que-e-iot-outros-tipos}
+
+É importante salientar que exitem outros termos e tecnologias relacionadas à
+IoT que tratam de coisas semelhantes. Esses outros termos às vezes são usados
+como sinônimos de IoT, outras vezes como complementares ou referentes a uma
+parte específica do ecossistema da IoT, causando uma certa confusão. Esta
+seção explicará brevemente os principais termos alternativos, sem entrar em
+maiores detalhes de cada um pois isso foge ao escopo deste trabalho.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{\ingles{Internet of Everything (IoE)}}
+\label{o-que-e-iot-outros-tipos-ioe}
+
+Alguns autores e empresas fazem uma diferenciação entre a \ingles{Internet of Things (IoT)}
+e a \ingles{Internet
+  of Everything (IoE)}, sendo esta ``a conexão em rede de pessoas, processos,
+dados e coisas'', e aquela ``simplesmente a conexão em rede de coisas
+e dados''~\citep{CiscoIoEPublicSectorOpportunity,CiscoIoTVS2013,CiscoIoTFAQ2013}.
+Assim, a IoE é uma ``evolução'' da IoT, cujo escopo e potencial
+são maiores. Segundo \citet{HebraIoTIoE2015} o futuro da IoT caminha para
+ser a IoE, trazendo enormes vantagens e benefícios.
+
+A IoE seria uma maneira de incluir tudo o que pode ser conectado, não apenas
+coisas e dados, mas algo bem maior e global~\citep{LuethIoT2014}.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{\ingles{Machine-to-Machine (M2M) Communication}}
+\label{o-que-e-iot-outros-tipos-m2m}
+
+Segundo~\citet{IEEEIoTDefinition}, ``a comunicação máquina-a-máquina (M2M) é a
+comunicação entre duas ou mais entidades do mesmo tipo que não precisam necessariamente de nenhuma
+intervenção humana direta. Serviços de M2M pretendem automatizar deicões
+e processos de comunicação''.
+
+Para~\citet{LuethIoT2014}, ``o termo comunicação máquina-a-máquina (M2M) está em
+uso há mais de uma década e é bem conhecido no setor de telecomunicações. Inicialmente
+a comunicação M2M era uma conexão um-a-um, fazendo a ligação entre uma máquina e outra.
+Mas hoje, com a explosão da conectividade móvel, dados são mais facilmente transmitidos
+via um sistema de rede IP, e muitos outros dispositivos participam da comunicação''.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{\ingles{Industrial Internet of Things (IIoT)}}
+\label{o-que-e-iot-outros-tipos-iiot}
+
+É um termo mais abrangente que a M2M pois envolve, não apenas a comunicação
+máquina-a-máquina, mas também a comunicação com interfaces humanas \citet{LuethIoT2014}
+integrando máquinas complexas com software e sensores em rede.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{\ingles{Web of Things (WoT)}}
+\label{o-que-e-iot-outros-tipos-wot}
+
+Segundo \citet{LuethIoT2014}, a \ingles{Web of Things} ``é um conjunto de
+arquitetura de \ingles{software} e padrões de programação que permitem que
+objetos do mundo real façam parte da \ingles{world wide web}''. É assim um conceito
+mais estreito do que a IoT pois está focado somente em \ingles{software}.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{\ingles{Industry 4.0}}
+\label{o-que-e-iot-outros-tipos-industry-4.0}
+
+O temo \ingles{Industry 4.0} ``descreve um conjunto de conceitos que pretendem
+direcionar a próxima revolução industrial, incluindo todos os tipos de conceitos
+de conectividade em um contexto industrial, indo além e incluindo mudanças reais
+no mundo físico tais como o uso de tecnologias de impressão 3D ou o uso de realidade
+virtual ou aumentado no processo de industrialização''~\citet{LuethIoT2014}.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{O conjunto dos outros tipos de ``internet das coisas''}
+\label{o-que-e-iot-outros-tipos-conjunto}
+
+Uma figura esquemática simples e objetiva do que é cada tipo de internet das coisas
+discutida nesta seção é fornecida por ~\citet{LuethIoT2014}. Nesse esquema
+(ver Figura~\ref{fig:outras-iot}) pode-se
+perceber de maneira objetiva o escopo de cada tecnologia e como cada uma se relaciona
+com as outras.
+
+\begin{figure}[h]
+  \begin{center}
+    \caption{Relações entre IoT, IoE, M2M, IIoT, WoT e Indústria 4.0}
+    \label{fig:outras-iot}
+    \fbox{\includegraphics[scale=0.21]{imagens/outras-iot.png}}
+    
+    \footnotesize{Ilustração retirada de~\citet{LuethIoT2014},
+      disponível em \url{https://iot-analytics.com/internet-of-things-definition/}.}
+  \end{center}
+\end{figure}
+
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
