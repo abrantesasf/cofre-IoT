@@ -161,6 +161,11 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Várias notas de rodapé no mesmo local
+%\usepackage[multiple]{footmisc}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Carrega bibliotecas de símbolos (matemáticos, físicos, etc.), fontes
 %%% adicionais, e configura algumas opções
 \usepackage{amsmath}
@@ -266,7 +271,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Hifenização específica quando o LaTeX/Babel não conseguirem hifenizar:
-\babelhyphenation{Git-Hub}
+\babelhyphenation{Git-Hub au-to-con-fi-gu-rá-vel}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -359,13 +364,13 @@ que será desenvolvido pelos autores como uma prova de conceito da IoT.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Conceitos e definições}
-\label{conceitos}
+\section{O que é IoT?}
+\label{o-que-e-iot}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{O que é IoT?}
-\label{conceitos-o-que-e-iot}
+\subsection{Definição e conceitos}
+\label{o-que-e-iot-definicao}
 
 Não existe um consenso estabelecido sobre o que realmente é a IoT e qual a melhor
 maneira de definí-la. Isso ocorre devido a relativa pouca idade e maturação do
@@ -389,7 +394,7 @@ importante.
       uma geladeira inteligente Samsung''~\citep{BajarinIoE2014}.}
     \label{fig:smart-geladeira}
     \fbox{\includegraphics[scale=0.8]{imagens/geladeira.jpeg}}
-    \newline
+
     \footnotesize{Foto de David Becker, retirada do artigo de ~\citet{BajarinIoE2014},
       disponível em \url{http://time.com/539/the-next-big-thing-for-tech-the-internet-of-everything/}}
   \end{center}
@@ -424,6 +429,139 @@ grandes empresas de tecnologia definem IoT do seguinte modo:
   para processar, analisar e visualizar dados em tempo real para suportar o aumento
   da eficiência operacional''~\citep{GoogleWhatsIoT}.
 \end{itemize}
+
+Um grande esforço de entendimento e conceituação da IoT foi realizado pelo \ingles{Institute
+  of Electrical and Electronics Engineers (IEEE)} que, reconheceu a grande importância
+do tema~\citep{IEEEIoTReport}, revisou a definição de IoT
+de várias organizações, projetos de pesquisa, governos e instituições de ensino, e publicou
+em 2015 sua própria definição de IoT no
+relatório\footnote{\url{https://iot.ieee.org/definition.html}}\textsuperscript{, }\footnote{O IEEE revisou
+  as definições e conceituações de IoT de 8 organismos internacionais de padronização, 8 projetos
+  de pesquisa em IoT, 3 iniciativas de governos, 7 relatórios institucionais de empresas e
+  consultorias, 5 livros que tratam exclusivamente de IoT e 3 definições fornecidas por indústrias
+que lidam com IoT.}
+``\ingles{Towards a definition of
+  the Internet of Things (IoT)}''~\citep{IEEEIoTDefinition}. A definição proposta
+pelo IEEE é a seguinte:
+
+\begin{quote}
+  ``A Internet das Coisas (IoT) é uma rede complexa, auto-configurá-vel e adaptativa,
+  que interconecta 'coisas' à Internet através do uso de protocolos de comunicação
+  padronizados. As coisas interconectadas têm representação física ou virtual no mundo
+  digital, com capacidades sensoriais, de atuação e programabilidade, e são unicamente
+  identificáveis. A representação contém informação sobre a coisa incluindo sua identidade,
+  status, localização ou qualquer outra informação relevante, privada, social ou
+  empresarial. A coisa oferece serviços, com ou sem a intervenção humana, através
+  da exploração de sua identificação única, dados capturados, comunicação e capacidade
+  de atuação. Os serviços são explorados através do uso de interfaces inteligentes e
+  estão disponíveis em qualquer lugar, a qualquer hora e para qualquer um ou qualquer
+  coisa, levando em consideração questões de segurança.''~\citep{IEEEIoTDefinition}
+\end{quote}
+
+Dissecando a definição da IEEE podemos compreender melhor cada parte da IoT:
+
+\begin{enumerate}
+\item \emph{\textbf{Coisa}}: é qualquer dispositivo que possa ser conectado
+  à Internet, variando desde um minúsculo sensor até um carro ou outro
+  grande equipamento, e que tenha capacidade sensorial, de atuação ou de
+  programabilidade.
+\item \emph{\textbf{Identificação única}}: cada coisa deve ser unicamente
+  identificável na Internet pois só assim pode-se captar dados relevantes
+  e oferecer serviços importantes para cada um.
+\item \emph{\textbf{Ubiquidade}}: as coisas e os serviços por elas disponibilizados
+  devem estar disponíveis em qualquer lugar, a qualquer hora e para qualquer um
+  ou qualquer coisa (note-se que uma coisa pode oferecer serviços para outras
+  coisas).
+\item \emph{\textbf{Rede}}: as coisas conversam, trocam dados e oferecem
+  serviços através de uma rede complexa, atualmente a Internet.
+\item \emph{\textbf{Autonomia}}: as coisas devem ser capazes de
+  obter dados e oferecer serviços sem a intervenção humana (não excluindo
+  a possibilidade da participação humana ativa também).
+\item \emph{\textbf{Segurança}}: toda essa atividade de coleta e troca de
+  dados via rede resulta em desafios imensos relacionados à segurança e
+  privacidade das informações, e as questões de segurança devem ser
+  tratadas pelas coisas e seus protocolos de comunicação.
+\end{enumerate}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Ecossistema da IoT}
+\label{o-que-e-iot-ecossistema}
+
+Todas as ``coisas'' conectadas à internet, incluindo todo o \ingles{hardware}
+e \ingles{software} formam o ``ecossistema da IoT'' (ver Figuras~\ref{fig:ecossistema1}
+e \ref{fig:ecossistema2}).
+
+O \ingles{hardware} inclui os próprios dispositivos, sensores, atuadores,
+servidores de processamento, servidores de armazenamento de dados,
+infra-estrutura de rede, infra-estrutura de nuvem, equipamentos de backup, etc. Enfim,
+inclui tudo o que é necessário para manter a estrutura da IoT funcionando.
+
+O \ingles{software} inlcui os sistemas embarcados nos dispositivos, os sistemas
+nos servidores, os sistemas de coleta e análise de dados ou qualquer outro
+sistema ou programa para que a IoT funcione adequadamente.
+
+\begin{figure}[H]
+  \begin{center}
+    \caption{Ecossistema, características e escopo da IoT.}
+    \label{fig:ecossistema1}
+    \fbox{\includegraphics[scale=0.4]{imagens/ecossistema1.png}}
+    
+    \footnotesize{Ilustração retirada do relatório do~\citet{IEEEIoTDefinition}}
+  \end{center}
+\end{figure}
+
+\begin{figure}[H]
+  \begin{center}
+    \caption{Ecossistema da IoT.}
+    \label{fig:ecossistema2}
+    \fbox{\includegraphics[scale=0.5]{imagens/ecossistema2.png}}
+    
+    \footnotesize{Ilustração retirada do relatório de~\citet{UKGOSWalportIoT2014}}
+  \end{center}
+\end{figure}
+
+Alguns autores~\citep{UKGOSWalportIoT2014,IEEEIoTDefinition,BarbozaTCCIoT2015}
+identificam, a grosso modo, dois ``tamanhos'' de ecossistema para as aplicações da IoT:
+pequena ou grande escala. O que diferencia entre essas duas é a comlexidade em termos
+de:
+
+\begin{itemize}[noitemsep]
+\item Número de dispositivos
+\item Propriedade e gerenciamento das coisas
+\end{itemize}
+
+Um ecossistema IoT de pequena escala corresponde à uma rede de dispositivos
+pouco complexa, com relativamente poucos dispositivos e, principalmente, com
+um único proprietário gerenciador. Aqui se encaixam as soluções
+de IoT de um único fabricante. Por exemplo: sistemas para a irrigação de jardins
+que utilizam dados de previsão do tempo, sistemas em veículos que indicam ao
+motorista a necessidade de manutenção preventiva, sistemas em marca-passos cardíacos
+que avisam à equipe médica se algum problema ocorrer.
+
+Por outro lado, um ecossistema IoT de grande escala corresponde à uma rede
+de dispositivos muito complexa, com muitos dispositivos e, principalmente, com
+diversos proprietários e gerenciadores (que podem até não ter relacionamentos
+explícitos entre eles). Segundo o \citet{IEEEIoTDefinition}, ``nesse contexto,
+a complexidade torna-se dominante e elementos como escalabilidade, lógica distribuída,
+etc., tornam-se essenciais. Todas as abordagens tradicionais para gerenciamento
+de confiança, nomeação, descoberta, etc., devem ser completamente repensadas''.
+
+As soluções de pequena escala, apesar do nome, já causam profundo impacto na sociedade
+mas o maior potencial para a IoT será quando for possível conectar todos os dispositivos,
+de todos os fabricantes, em um ecossistema de grande escala~\citep{UKGOSWalportIoT2014,IEEEIoTDefinition,BhattIoT,IEEEIoTReport,McKinseyIoTHype,MoolayilIoT2016,RajIoT2017,OliverWymanIoT2015,SAPFutureIoT,CiscoIoEPublicSectorOpportunity,CiscoIoTFAQ2013,CiscoIoTVS2013,CiscoIoEPublicSectorEconomicAnalysis,CiscoIoESurvey2013,CiscoIoEValuePrivate2013,CiscoIoEValuePublic2013}.
+
+Obviamente, apesar do grande potencial em conectar todos os dispositivos, de todos
+os fabricantes, em uma grande rede comum de troca de informações e prestação de
+serviços, existem grandes obstáculos a serem superados até que essa visão de futuro
+possa ser alcançada \citep{UKGOSWalportIoT2014}.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Breve histórico}
+\label{o-que-e-iot-historia}
+
+xxx
 
 
 
