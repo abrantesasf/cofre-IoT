@@ -623,7 +623,7 @@ contribuíram para o desenvolvimento da IoT, foram:
 
 \begin{itemize}
 \item \emph{RFID ativo com memória regravável}: a primeira patente de um sistema de RFID ativo,
-  com memória regravável foi obtida por Maria W. Cardullo, em 1973. Maiores informações
+  com memória regravável foi obtida por Mario W. Cardullo, em 1973. Maiores informações
   sobre essa tecnologia podem ser encontradas no artigo de \citet{CardulloRFIDGenesis2003}.
 \item \emph{Cartões fechadura}: também em 1973, Charles Walton desenvolveu um sistema
   de cartões plásticos com \ingles{transponders RFID} embutidos, capazes de abrir
@@ -711,7 +711,7 @@ são maiores. Segundo \citet{HebraIoTIoE2015} o futuro da IoT caminha para
 ser a IoE, trazendo enormes vantagens e benefícios.
 
 A IoE seria uma maneira de incluir tudo o que pode ser conectado, não apenas
-coisas e dados, mas algo bem maior e global~\citep{LuethIoT2014}.
+coisas e dados, mas algo bem maior e global~\citep{LuethIoT2014,BajarinIoE2014}.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -781,6 +781,231 @@ com as outras.
   \end{center}
 \end{figure}
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Aplicações da IoT}
+\label{aplicacoes-iot}
+
+Sem dúvida nenhuma as áreas onde a IoT pode ser aplicada são limitadas apenas
+pela imaginação humana, variando desde um simples eletrodoméstico até grandes
+sistemas industriais ou sistemas para cidades inteiras.
+
+O potencial é tão grande que ``é impossível antecipar
+todas as mudanças sociais que podem ser criadas atraves da conexão de bilhões
+de dispositivos''~\citep{UKGOSWalportIoT2014}.
+
+De modo geral os autores~\citep{OliverWymanIoT2015,UKGOSWalportIoT2014,IEEEIoTReport,IEEEIoTDefinition,ChuiIoT2010,BughinExecutiveIoT2015,GuptaMcKinseyIoT2017,McKinseyIoTHype,SAPFutureIoT,SASIoTUseCases2016} citam as seguintes grandes
+áreas como as que mais se beneficiarão da aplicação da IoT (ver também
+Figuras~\ref{fig:aplicacoes-iot-1}, \ref{fig:aplicacoes-iot-2} e \ref{fig:aplicacoes-iot-3}):
+
+\begin{itemize}[noitemsep]
+\item Saúde
+\item Agricultura
+\item Construção civil (incluindo os lares)
+\item Varejo
+\item Energia, petróleo, gás e mineração
+\item Indústria
+\item Mobilidade e transporte (incluindo veículos autônomos)
+\item Logística
+\item Mídia
+\item Cidades inteligentes
+\end{itemize}
+
+\begin{figure}[!h]
+  \begin{center}
+    \caption{Principais aplicações da IoT, segundo~\citet{OliverWymanIoT2015}}
+    \label{fig:aplicacoes-iot-1}
+    \fbox{\includegraphics[scale=0.4]{imagens/aplicacoes-1.png}}
+    
+    \footnotesize{Ilustração retirada de~\citet{OliverWymanIoT2015}}
+  \end{center}
+\end{figure}
+
+\begin{figure}[!h]
+  \begin{center}
+    \caption{Principais setores beneficiados pela IoT e seus \ingles{stakeholders}
+      mais importantes, segundo o~\citet{IEEEIoTDefinition}}
+    \label{fig:aplicacoes-iot-2}
+    \fbox{\includegraphics[scale=0.4]{imagens/aplicacoes-2.png}}
+    
+    \footnotesize{Ilustração retirada de~\citet{IEEEIoTDefinition}}
+  \end{center}
+\end{figure}
+
+\begin{figure}[!h]
+  \begin{center}
+    \caption{Principais áreas de aplicação da IoT, segundo~\citet{McKinseyIoTHype}}
+    \label{fig:aplicacoes-iot-3}
+    \fbox{\includegraphics[scale=0.4]{imagens/aplicacoes-3.png}}
+    
+    \footnotesize{Ilustração retirada de~\citet{McKinseyIoTHype}}
+  \end{center}
+\end{figure}
+
+As próximas seções detalharão como a IoT causará um impacto benéfico, e mostrarão
+alguns casos de sucesso que ilustram todo o potencial dessa nova tecnologia.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Como a IoT cria valor?}
+\label{aplicacoes-iot-criacao-valor}
+
+Antes de discutirmos casos concretos da aplicação da IoT, é importante ter clara
+a noção de como a IoT cria valor, ou seja, como uma rede de coisas conectadas
+podem beneficiar as pessoas e gerar valor para elas e para as empresas.
+
+\citet{ChuiIoT2010} classifica o mecanismo de geração de valor da IoT em
+dois grandes grupos: um grupo de \textbf{Informação e Análise} (que envolve atividades
+de monitoramento de comportamento, obtenção de consciência em tempo real do ambiente
+físico e a tomada de decisões baseadas em \emph{analytics} de sensores) e
+um grupo de \textbf{Automação e Controle} (que envolve atividades de otimização
+de processos, otimização do consumo de recursos e o desenvolvimento de sistemas
+autônomos complexos).
+
+Explicando melhor como a IoT gera valor, \citet{ChuiIoT2010} nos fornece
+as seguintes informações:
+
+\begin{itemize}
+\item \emph{\textbf{Informação e Análise}}: a IoT pode fornecer mais e melhor
+  informação e análise, aumentando a velocidade e a performance da tomada de
+  decisão. Isso é obtido através de:
+  \begin{itemize}
+  \item \emph{Monitoramento de comportamento}: inclui as atividades
+    de monitoramento do comportamento, status e outras variáveis de pessoas,
+    coisas ou dadados, no espaço e tempo. Por exemplo: uma empresa de seguros
+    pode colocar sensores em carros e monitorar como e por onde um carro trafega,
+    podendo basear políticas de preços personalizadas com essa informação; empresas
+    podem monitorar a movimentação de produtos por toda a cadeia de suprimentos,
+    melhorando o controle de estoque e reduzindo perdas.
+  \item \emph{Obter consciência em tempo real do ambiente físico}: inclui as
+    atividades que visam obter dados, em tempo real, de sensores alocados em
+    diversas coisas ou lugares, para fornecer aos tomadores de decisão uma visão
+    em tempo real do ambiente. Por exemplo: sensores sônicos espalhados pela cidade
+    podem fornecer às delegacias de polícia dados instantâneos sobre a localização
+    em tempo real de disparos de arma de fogo.
+  \item \emph{Decisões orientadas por} analytics \emph{baseada em sensores}: a
+    obtenção de dados em tempo real e sua ligação à sistema de análises automatizados
+    pode orientar decisões humanas ou automáticas em diversos serviços e áreas de
+    aplicação. Por exemplo: varejistas podem monitorar através de sensores a
+    movimentação de clientes pela loja, verificando quais produtos os clientes
+    gastam mais tempo observando, e disparar promoções ou propagandas imediatas.
+  \end{itemize}
+\item \emph{\textbf{Automação e Controle}}: a IoT pode criar uma base para
+  automação e controle convertendo os dados obtidos pelos sensores em \emph{feedback}
+  para os atuadores para a otimização e ajuste de diversos processos. Isso é obtido
+  através de:
+  \begin{itemize}
+  \item \emph{Otimização de processos}: inclui as atividades que visam obter
+    de sensores informações importantes sobre processos, analisá-las automaticamente
+    e ajustar o processo para otimizá-lo em tempo real. Por exemplo: uma indústria
+    pode instalar sensores de temperatura para manter sempre na faixa adequada
+    um forno utilizado na produção.
+  \item \emph{Otimização do consumo de recursos}: inclui as atividades que podem
+    auxiliar a mudar e otimizar o uso de recursos, incluindo energia, água e
+    demais recursos. Por exemplo: uma empresa de energia pode fornecer medidores
+    de consumo elétrico que mostram, em tempo real, o consumo e o custo imediato
+    de fornecimento, cobrando diferentemente pelo padrão e horário de uso.
+  \item \emph{Sistemas autônomos complexos}: inclui as atividades que envolvem
+    a rápida detecção em tempo real de condições imprevisíveis e respostas
+    instantâneas guiadas por sistemas automáticos que imitam as reações humanas
+    (e escolhem a melhor reação entre várias possíveis). Por exemplo: montadoras
+    estão desenvolvendo vários tipos de sistemas de caros, desde sistemas de
+    detecção e evasão de colisões, até carros autônomos.
+  \end{itemize}
+\end{itemize}
+
+Enfim, as possibilidades de geração de valor com a IoT são enormes e, à medida
+em que usos mais inteligentes e inovadores dos sensores e dos dados obtidos forem
+desenvolvidos, outros modelos de negócios e formas de geração de valor serão
+criados e implementados.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Exemplos atuais de aplicação da IoT}
+\label{aplicacoes-iot-exemplos}
+
+Devido às inúmeras aplicações da IoT já citadas na Seção~\ref{aplicacoes-iot},
+apresentaremos aqui apenas alguns exemplos em três áreas: cuidados de saúde,
+agricultura e transporte. Diversos outros exemplos podem ser obtidos consultando-se
+as referências bibliográficas indicadas\footnote{\citet{OliverWymanIoT2015,UKGOSWalportIoT2014,IEEEIoTReport,IEEEIoTDefinition,ChuiIoT2010,BughinExecutiveIoT2015,GuptaMcKinseyIoT2017,McKinseyIoTHype,SAPFutureIoT,SASIoTUseCases2016,MorganStanleyIoTnow2013,AlaskaIoTComm2015,BackDeckerIoT2014,MazakIoT2016,CopenhagenIoT2013,KansasIoT2016,RockwellIoT2016,MississaugaIoT2015}}.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Cuidados de saúde}
+\label{aplicacoes-iot-exemplos-saude}
+
+Segundo \citet{UKGOSWalportIoT2014} a IoT nos cuidados de saúde ``pode ajudar
+a mudar o foco da cura para a prevenção e dar às pessoas maior controle sobre
+as decisões que afetam seu bem-estar''. Algumas aplicações já existem:
+
+\paragraph{Ambulâncias aéreas} A \ingles{California Shock Trauma Air Rescure (CALSTAR)}
+é um serviço de ambulância aérea que começou a utilizar conceitos de IoT para
+integrar sistemas de comunicação ar-solo para conectar suas aeronavas de
+transporte às instituições de saúde~\citep{CiscoCALSTAR}.
+
+\paragraph{Aplicativos \emph{fitness}} Diversos aplicativos voltados para saúde
+e \emph{fitness} já existem, alguns conectados à sensores IoT que captam
+dados como freqüência cardíaca. Os dez maiores aplicativos desse gênero
+estão realmente contribuindo para tornar mais saudáveis os hábitos
+de saúde de seus usuários~\citep{OliverWymanIoT2015}.
+
+\paragraph{Monitoramento contínuo} Usando soluções de monitoramento contínuo,
+a IoT está aumentando a aderência dos pacientes às terapias prescritas, diminuindo
+as internações e aumentanto a qualidade de vida de pacientes~\citep{McKinseyIoTHype}.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Agricultura}
+\label{aplicacoes-iot-exemplos-agricultura}
+
+Aplicações da IoT na área de agricultura são diversas e com potencial de aumentar
+a produtividade alimentar e aumentar a proteção ao meio ambiente. Algumas
+iniciativas interessantes:
+
+\paragraph{Monitoramento de colméias} Soluções de IoT já são utilizadas para
+monitorar colméias de abelhas em tempo real, reduzindo a inspeção manual que causa
+distúrbios nas colméias e diminuem a produtividade de mel~\citep{SilvaIoTColmeia2017}.
+
+\paragraph{Sistemas de irrigação} Já existem sistemas de irrigação baseados em IoT
+que, através de sensores de umidade do solo, temperatura e umidade do ar, conseguem
+otimizar e setorializar a irrigação de lavouras~\citep{UKGOSWalportIoT2014}. Aplicações
+domésticas para irrigação de jardins também existem~\citep{GrehsIrrigacaoIoT2016}.
+
+\paragraph{Monitoramento de gado} Soluções para monitoramento em tempo real de gado,
+através de dispositivos ligados à GPS permitem entender o comportamento de rebanhos e
+identificar animais machucados ou doentes~\citep{SpinkIoTTrackAnimals2013}.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Transporte e mobilidade}
+\label{aplicacoes-iot-exemplos-transporte}
+
+Diversas iniciativas interessantes existem na área de transporte e mobilidade,
+e o potencial para veículos autônomos é enorme.
+
+\paragraph{Avisos de alteração nos sinais de trânsito} A cidade de \ingles{Newcastle}
+está testando um sistema baseado em IoT que sinaliza aos motoristas que é o momento
+de ajustar a velocidade do carro (aumentar ou diminuir) se as luzes dos sinais
+de trânsito estão prestes a mudar~\citep{UKGOSWalportIoT2014}.
+
+\paragraph{Transporte escolar inteligente} A \ingles{Watkins Glen Central School District},
+em \ingles{New York}, implantou um projeto de IoT para conectar os ônibus escolares
+à escola, tornando-os uma espécie de campus escolar digital. Isso foi feito pois muitos
+alunos realizam viagens de quase uma hora nesses ônibus e, para estimular a realização
+das tarefas de casa, os professores passaram a implementar atividades para serem feitas
+nos ônibus, no trajeto entre a escola e a residência dos alunos~\citep{GlenSchoolBusIoT2016}.
+
+\paragraph{Estradas que previnem engarrafamentos} Na Áustria, 
+a \ingles{Autobahnen- und Schnellstraßen-Finanzierungs-Aktiengesellschaft} (ASFiNAG) --- que
+é a empresa pública resposável pela manutenção das autoestradas --- implantou uma
+rede de mais de 70 mil sensores de movimento e localização em todas as autoestradas
+austríacas. Essa rede de sensores é capaz de identificar e prevenir
+a formação de engarrafamentos, além de identificar veículos com
+problemas~\citep{ASFiNAGIoT2015}.
 
 
 
