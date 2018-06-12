@@ -1,0 +1,52 @@
+package brendhom;
+
+
+
+import java.util.Scanner;
+
+public class matriz {
+    
+    public static void main(String[] args){
+           String [][] matriz = new String[3][3];
+           int canal[];
+           
+           int horario[];
+           
+            
+            Scanner scan= new Scanner(System.in);
+            System.out.println("           Bem vindo! :) \nInsira os programas de TV de sua preferencia\n");
+            
+            
+            for(int linha=0 ; linha < 3 ; linha++){
+                for(int coluna = 0; coluna < 3 ; coluna ++){
+                    System.out.printf("Insira o elemento M[%d][%d]: ",linha+1,coluna+1);
+                    matriz[linha][coluna]=scan.nextLine();
+                }
+            }
+            
+            System.out.println("\n                            A Matriz ficou: ");
+            //System.out.print("______________________________________________________________________\n");
+            for(int linha=0 ; linha < 3 ; linha++){
+                for(int coluna = 0; coluna < 3 ; coluna ++){
+                    //System.out.printf("\t\t"+matriz[linha][coluna]);
+                }
+                
+                System.out.println();
+               // System.out.println("______________________________________________________________________\n");
+                
+                
+                
+            }
+          
+            
+            
+            	
+            }
+          public static void horario() {
+        	  System.out.print("Insira o horário: ");
+        	  
+           
+          }
+
+
+}
