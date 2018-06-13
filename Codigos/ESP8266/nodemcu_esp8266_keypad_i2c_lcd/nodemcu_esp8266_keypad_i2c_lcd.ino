@@ -116,8 +116,8 @@ void bemVindo() {
  * CONFIGURAÇÕES INICIAIS PARA ACESSO À INTERNET:
  */
 // Definições de acesso à rede wifi:
-const char* ssid     = "PT_SO_TEM_CORRUPTO";
-const char* password = "bolsonaro2018";
+const char* ssid     = "<insira aqui o SSID da rede wifi";
+const char* password = "<insira aqui a senha da rede wifi";
 
 // IP do servidor do Cofre-IoT:
 String servidor = "52.202.172.134";
