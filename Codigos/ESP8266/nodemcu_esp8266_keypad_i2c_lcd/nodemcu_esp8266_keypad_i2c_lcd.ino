@@ -27,8 +27,12 @@ Outputs gerais: Cada opção de ação apresenta uma mensagem específica de err
        Retorno: -
     Limitações: 1) Falhas na conexão Wireless estão com um tratamento MUITO básico. Esse tratamento
                    de exceção precisa ser muito melhorado ainda.
-                2) Se você digitar um número maior do que o saldo e utilizar a função de diminuir, seu
-                   saldo ficará negativo. Esse comportamento precisa ser corrigido.
+                2) Se você digitar um número maior do que o saldo e utilizar a função de diminuir, uma
+				   check constraint no banco de dados impedirá que seu saldo fique negativo, mas nenhum
+				   aviso será fornecido ao usuário.
+				3) A comunicação entre o ESP8266 e o servidor está sendo feito via HTTP e não via HTTPS,
+				   portanto não está segura. É necessário alterar o código para que a transmissão de
+				   dados seja feita via HTTPS.
    Referências: De modo geral este código é uma mistura de DIVERSOS FRAGMENTOS de códigos obtidos em 
                 tutoriais ou fóruns na internet, para funções específicas, por exemplo: o código para inicializar
                 o keypad e mapear as teclas, o código para inicializar e se conectar no wifi, etc. O algoritmo
