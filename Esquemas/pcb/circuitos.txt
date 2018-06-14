@@ -1,0 +1,28 @@
+Circuitos do Arduino
+====================
+
+Leitor de impressão digital (de baixo para cima):
+  - GND
+  - pino 3
+  - pino 2
+  - 5V
+  - <não usado>
+  - <não usado>
+
+Display (ao olhar para o display, com os pinos na parte de baixo,
+a seqüência da direita para a esquerda é a seguinte):
+  - protoboard, em linha 3.3V
+  - pino 13
+  - pino 11
+  - pino 8
+  - pino 9
+  - pino 10
+  - GND
+  - 5V
+
+Rele para a tranca:
+  - GND
+  - pino 7
+  - 5V
+  - NA liga no positivo da tranca
+  - C liga no positivo da fonte

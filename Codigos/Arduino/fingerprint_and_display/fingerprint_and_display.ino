@@ -13,7 +13,10 @@
                 em um display a informação de "aberto" ou "fechado", de acordo
                 com a presença ou ausência da impressão digital: se a impressão
                 digital estiver no banco de dados do próprio sensor, o cofre é
-                aberto; caso contrário, nada ocorre.
+                aberto; caso contrário, nada ocorre. Além disso, quando a digital é
+                reconhecida, um sinal é enviado para uma trava solenóide e o cofre é aberto.
+                Juntamente a isso, um módulo NodeMCU é alimentado, e passa a exercer as funções
+                de consulta de saldo, soma e diminuição dos valores do banco de dados.
 
 Pré-requisitos: 1) Arduino
                 2) Leitor de impressões digitais (ver seção Hardware)
@@ -28,6 +31,7 @@ Pré-requisitos: 1) Arduino
 Outputs gerais: 1) Uma mensagem de bem-vindo no display, indicando que
                    o cofre está aberto.
                 2) Um sinal elétrico para abrir a tranca do cofre.
+                3) Um sinal elétrico para ativar o NodeMCU.
 
        Retorno: -
 
@@ -60,6 +64,8 @@ Outputs gerais: 1) Uma mensagem de bem-vindo no display, indicando que
                                         https://www.hotmcu.com/18-128x160-tft-lcd-with-spi-interface-p-314.html
 ******************************************************************************************************/
 
+
+// Inclui bibliotecas necessárias
 #include <SPI.h>
 #include <Adafruit_GFX.h>
 #include <TFT_ILI9163C.h>
@@ -76,8 +82,19 @@ Outputs gerais: 1) Uma mensagem de bem-vindo no display, indicando que
 #define YELLOW  0xFFE0  
 #define WHITE   0xFFFF
 
+// Define algumas variáveis para apontar para pinos específicos
 #define __CS 10
 #define __DC 9
+
+// Para ajustar a configuração do tamanho do display, ajuste as seguintes definições
+// DIRETAMENTE no arquivo /opt/arduino/libraries/Adafruit_TFT_ILI9163C/_settings/TFT_ILI9163C_settings.h
+//#define _TFTWIDTH     128//the REAL W resolution of the TFT
+//#define _TFTHEIGHT    160//the REAL H resolution of the TFT
+//#define _GRAMWIDTH    128
+//#define _GRAMHEIGH    160//160
+//#define __OFFSET        0//*see note 2
+
+// Imagem do ícone da impressão digital
 static const uint8_t icon [] PROGMEM = {
 0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,
 0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,
@@ -141,54 +158,100 @@ static const uint8_t icon [] PROGMEM = {
 0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0
 };
 
-
-TFT_ILI9163C display = TFT_ILI9163C(__CS,8, __DC);
+// Instancia display TFT, com a pinagem especificada
+TFT_ILI9163C display = TFT_ILI9163C(__CS, 8, __DC);
 SoftwareSerial mySerial(2, 3);
+
+// Instancia leitor de digitais
 Adafruit_Fingerprint finger = Adafruit_Fingerprint(&mySerial);
 int fingerprintID = 0;
 
+// Função setup
 void setup(void) {
-
+  // Inicia leitor de digitais
   startFingerprintSensor();
+
+  // Inicia display
   display.begin();
-  displayLockScreen(); 
+  //display.setRotation(2); 
+
+  // Exibe a tela de fechado
+  displayLockScreen();
+
+  // Configura pinos para reles
+  pinMode(7, OUTPUT);
+  pinMode(4, OUTPUT);
+  digitalWrite(7, LOW);
+  digitalWrite(4, HIGH);
 }
 
+// Variavel para controlar o status do cofre
+boolean cofreAberto = 0;  // 0 = fechado; 1 = aberto
+
+// Função loop:
 void loop() {
 
+  // Lê impressão digital
   fingerprintID = getFingerprintID();
   delay(50);
+  
   if(fingerprintID == 1)
   {
-    display.drawBitmap(30,35,icon,60,60,GREEN);
-    delay(2000);
-    displayUnlockedScreen();
-    displayIoanna();
-    delay(5000);
-    display.fillScreen(BLACK);
-    displayLockScreen();
+    if (cofreAberto == 0) {
+      abreCofre("Brendhom");
+    } else {
+      fechaCofre();
+    }
   }
 
    if(fingerprintID == 2)
   {
-    display.drawBitmap(30,35,icon,60,60,GREEN);
-    delay(2000);
-    displayUnlockedScreen();
-    displayNick();
-    delay(5000);
-    display.fillScreen(BLACK);
-    displayLockScreen();
+    if (cofreAberto == 0) {
+      abreCofre("Carlos");
+    } else {
+      fechaCofre();
+    }
   }
+
+   if(fingerprintID == 3)
+  {
+    if (cofreAberto == 0) {
+      abreCofre("Abrantes");
+    } else {
+      fechaCofre();
+    }
+  }
+
 }
 
+void abreCofre(String nome) {
+  display.drawBitmap(30,35,icon,60,60,GREEN);
+  cofreAberto = 1;
+  delay(1000);
+  displayUnlockedScreen();
+  displayNome(nome);
+  delay(1000);
+  digitalWrite(7, HIGH);
+  delay(1000);
+  digitalWrite(7, LOW);
+  delay(500);
+  digitalWrite(4, LOW);
+}
+
+void fechaCofre() {
+  cofreAberto = 0;
+  digitalWrite(4, HIGH);
+  display.fillScreen(BLACK);
+  displayLockScreen();
+}
 
 void displayUnlockedScreen()
 {
    display.fillScreen(BLACK);
-   display.drawRect(0,0,128,128,WHITE);
+   display.drawRect(0,0,128,160,WHITE);
    
    display.setCursor(23,10);
-   display.setTextColor(GREEN); 
+   display.setTextColor(RED); 
    display.setTextSize(2);
    display.print("ABERTO");
 
@@ -197,25 +260,24 @@ void displayUnlockedScreen()
    display.setTextSize(2);
    display.print("BEM VINDO");
 }
-void displayNick()
+
+void displayNome(String nome)
 {
   display.setCursor(16,75);
   display.setTextColor(WHITE); 
   display.setTextSize(2);
-  display.print("Brendhom!");
-}
+  display.print(nome);
 
-void displayIoanna()
-{
-  display.setCursor(25,75);
-  display.setTextColor(WHITE); 
-  display.setTextSize(2);
-  display.print("IOANNA!");
+  display.setCursor(5, 120);
+  display.setTextSize(1);
+  display.print("Informe novamente a");
+  display.setCursor(5, 130);
+  display.print("digital para fechar.");
 }
 
 void displayLockScreen()
 {
-  display.drawRect(0,0,128,128,WHITE);
+  display.drawRect(0,0,128,160,WHITE);
   display.setCursor(20,10);
   display.setTextColor(RED); 
   display.setTextSize(2);
@@ -223,11 +285,14 @@ void displayLockScreen()
 
   display.setCursor(10,100);
   display.setTextColor(WHITE); 
-  display.setTextSize(1);
-  display.print("Esperando por uma  \n digital valida.");
+  display.setTextSize(1.8);
+  display.print("Esperando uma");
+  display.setCursor(10,110);
+  display.print("digital valida...");
 
   display.drawBitmap(30,35,icon,60,60,WHITE);
 }
+
 void startFingerprintSensor()
 {
   Serial.begin(9600);
